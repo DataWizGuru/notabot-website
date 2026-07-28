@@ -28,10 +28,11 @@
         <img src="assets/logo/notabot-wordmark-nav.png" alt="Notabot Studio">
       </a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#programmes">Programmes</a>
+        <a href="#programmes">Learn by role</a>
+        <a href="#individuals">For individuals</a>
+        <a href="#tools">Tool training</a>
         <a href="#planner">Plan & pricing</a>
         <a href="#method">How it works</a>
-        <a href="#vision">Our vision</a>
       </nav>
       <a class="button button-primary nav-cta magnetic" href="#planner">Build my learning plan</a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
@@ -39,7 +40,9 @@
       </button>
     </div>
     <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" data-mobile-menu>
-      <a href="#programmes">Programmes</a>
+      <a href="#programmes">Learn by role</a>
+      <a href="#individuals">For individuals</a>
+      <a href="#tools">Tool training</a>
       <a href="#planner">Plan & pricing</a>
       <a href="#method">How it works</a>
       <a href="#vision">Our vision</a>
@@ -59,11 +62,11 @@
           <div class="eyebrow reveal"><span></span> Human-centred data capability</div>
           <h1 class="kinetic-title" aria-label="Build data confidence. Keep BAU moving.">
             <span class="title-line title-line-a">Build data</span>
-            <span class="title-line title-line-b">confidence.</span>
+            <span class="title-line title-line-b">con<span class="confidence-f">f</span><span class="confidence-i">i</span>dence.</span>
             <span class="title-line title-line-c">Keep BAU</span>
             <span class="title-line title-line-d">moving.</span>
           </h1>
-          <p class="hero-lead reveal">Role-based data, dashboard, Power BI and AI-readiness programmes that build capability inside the work—without taking an entire team offline.</p>
+          <p class="hero-lead reveal">Role-based data, analytics, Power BI, Fabric and AI-readiness learning that builds confidence inside the work—without taking an entire team offline.</p>
           <div class="hero-actions reveal">
             <a class="button button-primary button-large magnetic" href="#programmes">Choose a programme <span aria-hidden="true">↗</span></a>
             <a class="button button-ghost button-large magnetic" href="#planner">Build my learning plan</a>
@@ -93,8 +96,8 @@
 
     <section class="ticker" aria-label="Capability areas">
       <div class="ticker-track">
-        <span>DATA CONFIDENCE</span><i>✦</i><span>DECISION INTELLIGENCE</span><i>✦</i><span>DASHBOARD FLUENCY</span><i>✦</i><span>AI JUDGEMENT</span><i>✦</i><span>POWER BI WITH PURPOSE</span><i>✦</i>
-        <span>DATA CONFIDENCE</span><i>✦</i><span>DECISION INTELLIGENCE</span><i>✦</i><span>DASHBOARD FLUENCY</span><i>✦</i><span>AI JUDGEMENT</span><i>✦</i><span>POWER BI WITH PURPOSE</span><i>✦</i>
+        <span>DATA CONFIDENCE</span><i>✦</i><span>DECISION INTELLIGENCE</span><i>✦</i><span>DASHBOARD FLUENCY</span><i>✦</i><span>AI JUDGEMENT</span><i>✦</i><span>DATA FOR YOUR ROLE</span><i>✦</i>
+        <span>DATA CONFIDENCE</span><i>✦</i><span>DECISION INTELLIGENCE</span><i>✦</i><span>DASHBOARD FLUENCY</span><i>✦</i><span>AI JUDGEMENT</span><i>✦</i><span>DATA FOR YOUR ROLE</span><i>✦</i>
       </div>
     </section>
 
@@ -136,7 +139,7 @@
             <button type="button" data-question-jump="3"><span>04</span><strong>Business value</strong></button>
           </div>
 
-          <p class="questions-note">Scroll through the questions. Take the clarity with you.</p>
+          <p class="questions-note">Choose a question. Get a clear, plain-language answer.</p>
         </div>
       </div>
     </section>
@@ -172,68 +175,152 @@
       <div class="shell">
         <div class="programme-heading-row reveal">
           <div>
-            <div class="eyebrow"><span></span> Programmes by business outcome</div>
-            <h2>Choose the capability your team needs next.</h2>
+            <div class="eyebrow"><span></span> Learn by role</div>
+            <h2>Start with the person—not the software.</h2>
           </div>
-          <p>Compare four pathways in one frame. Adjust team size once and see how price, cohort count and BAU impact change.</p>
+          <p>Executives, managers, business professionals and analysts need different levels of data confidence. Choose the role first, then shape the learning around the work they actually do.</p>
         </div>
 
         <div class="pricing-toolbar reveal" aria-label="Programme pricing controls">
-          <div class="pricing-toolbar-title"><span>Live planning view</span><strong>Configure once. Compare all four.</strong></div>
-          <label class="team-size-select"><span>People</span>
-            <select id="pricing-team-size" aria-label="Choose team size">
-              <option value="5">5</option><option value="8">8</option><option value="10" selected>10</option><option value="12">12</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="40">40</option>
-            </select>
-          </label>
-          <label class="bau-toggle"><span class="bau-toggle-copy"><strong>Smaller rotating cohorts</strong><small>Protect more BAU coverage</small></span><input type="checkbox" id="pricing-bau-toggle" aria-label="Use smaller rotating cohorts"><i aria-hidden="true"></i></label>
+          <div class="pricing-toolbar-title"><span>Live planning view</span><strong>Set the team size once. Compare every role.</strong></div>
+          <div class="people-planner" aria-label="Choose number of people">
+            <span class="people-label">People</span>
+            <div class="pricing-counter">
+              <button type="button" data-pricing-decrement aria-label="Remove one person">−</button>
+              <label><span class="sr-only">Number of people</span><input id="pricing-team-size" type="number" min="1" max="40" value="10" inputmode="numeric"></label>
+              <button type="button" data-pricing-increment aria-label="Add one person">+</button>
+            </div>
+            <div class="quick-size-list" aria-label="Quick team sizes">
+              <button type="button" data-team-size="5">5</button>
+              <button type="button" data-team-size="10" class="active">10</button>
+              <button type="button" data-team-size="15">15</button>
+              <button type="button" data-team-size="20">20</button>
+              <button type="button" data-team-size="30">30</button>
+            </div>
+          </div>
+          <label class="bau-toggle"><span class="bau-toggle-copy"><strong>Smaller rotating groups</strong><small>Keep more of the team available for BAU</small></span><input type="checkbox" id="pricing-bau-toggle" aria-label="Use smaller rotating groups"><i aria-hidden="true"></i></label>
         </div>
 
-        <div class="programme-pricing-shell reveal">
-          <article class="programme-plan" data-programme-card="confidence">
-            <div class="plan-topline"><span>Business teams</span></div>
-            <h3>Data Confidence<br><span>& AI Judgement</span></h3>
-            <p class="plan-description">Read data confidently, challenge dashboards and evaluate AI-generated insight with stronger judgement.</p>
-            <div class="plan-price"><span>Estimated investment</span><strong data-programme-price="confidence">R22,500</strong><small data-programme-per-person="confidence">R2,250 per person</small></div>
-            <div class="cohort-summary" data-programme-cohorts="confidence">1 cohort of 10 · 3 × 75 min + clinic</div>
+        <div class="programme-pricing-shell role-pricing-shell reveal" aria-label="Role-based learning programmes">
+          <article class="programme-plan" data-programme-card="executive">
+            <div class="plan-topline"><span>Executives & senior leaders</span><b>Founder-led</b></div>
+            <h3>The Data-Smart<br><span>Executive</span></h3>
+            <p class="plan-description">Get up to speed quickly on analytics, dashboards, KPIs and AI—without a degree, long course or technical background.</p>
+            <div class="plan-price"><span>Estimated investment</span><strong data-programme-price="executive">R10,000</strong><small data-programme-per-person="executive">R1,000 per person</small></div>
+            <div class="cohort-summary" data-programme-cohorts="executive">1 leadership group of 10 · 90 min + guided Q&amp;A</div>
             <div class="plan-divider"></div>
-            <ul class="plan-features"><li>Data-to-decision thinking</li><li>KPI interpretation</li><li>Critical AI-output judgement</li><li>Applied business clinic</li></ul>
-            <div class="plan-card-actions"><button class="button button-plan estimate-button magnetic" type="button" data-programme="confidence">Build this plan</button><a class="text-link" href="#planner">Details <span>↗</span></a></div>
+            <ul class="plan-features"><li>Understand what analytics and AI can do</li><li>Challenge KPIs and dashboards</li><li>Ask better questions of data teams</li><li>Make more confident decisions</li></ul>
+            <div class="plan-card-actions"><button class="button button-plan estimate-button magnetic" type="button" data-programme="executive">Build this plan</button><a class="text-link" href="#leaders">See executive offer <span>↗</span></a></div>
+          </article>
+
+          <article class="programme-plan" data-programme-card="business">
+            <div class="plan-topline"><span>Business professionals</span></div>
+            <h3>Data Confidence<br><span>for Your Role</span></h3>
+            <p class="plan-description">Learn what analytics means, how data can help your role and how to read reports without needing to become a data specialist.</p>
+            <div class="plan-price"><span>Estimated investment</span><strong data-programme-price="business">R18,500</strong><small data-programme-per-person="business">R1,850 per person</small></div>
+            <div class="cohort-summary" data-programme-cohorts="business">1 group of 10 · 3 × 75 min + follow-up support</div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features"><li>What data and analytics actually mean</li><li>How data supports your job</li><li>Read KPIs and dashboards with confidence</li><li>Ask useful business questions</li></ul>
+            <div class="plan-card-actions"><button class="button button-plan estimate-button magnetic" type="button" data-programme="business">Build this plan</button><a class="text-link" href="#planner">View details <span>↗</span></a></div>
           </article>
 
           <article class="programme-plan" data-programme-card="managers">
-            <div class="plan-topline"><span>Managers</span></div>
+            <div class="plan-topline"><span>Managers & team leaders</span></div>
             <h3>Decision Intelligence<br><span>for Managers</span></h3>
-            <p class="plan-description">Turn business questions, KPIs and evidence into clearer decisions and stronger performance conversations.</p>
-            <div class="plan-price"><span>Estimated investment</span><strong data-programme-price="managers">R34,500</strong><small data-programme-per-person="managers">R3,450 per person</small></div>
-            <div class="cohort-summary" data-programme-cohorts="managers">1 cohort of 10 · 3 × 90 min + clinic</div>
+            <p class="plan-description">Use business questions, KPIs and evidence to run clearer performance conversations and make better decisions.</p>
+            <div class="plan-price"><span>Estimated investment</span><strong data-programme-price="managers">R29,500</strong><small data-programme-per-person="managers">R2,950 per person</small></div>
+            <div class="cohort-summary" data-programme-cohorts="managers">1 group of 10 · 3 × 90 min + applied support</div>
             <div class="plan-divider"></div>
-            <ul class="plan-features"><li>Business problem framing</li><li>KPI thinking</li><li>Insight-to-action routines</li><li>Applied manager clinic</li></ul>
-            <div class="plan-card-actions"><button class="button button-plan estimate-button magnetic" type="button" data-programme="managers">Build this plan</button><a class="text-link" href="#planner">Details <span>↗</span></a></div>
+            <ul class="plan-features"><li>Frame the real business problem</li><li>Choose useful KPIs</li><li>Separate symptoms from causes</li><li>Turn insight into accountable action</li></ul>
+            <div class="plan-card-actions"><button class="button button-plan estimate-button magnetic" type="button" data-programme="managers">Build this plan</button><a class="text-link" href="#planner">View details <span>↗</span></a></div>
           </article>
 
           <article class="programme-plan programme-plan-featured" data-programme-card="storytelling">
             <div class="plan-topline"><span>Analysts & BI teams</span><b>Signature</b></div>
             <h3>Data Storytelling<br><span>& Decision Design</span></h3>
-            <p class="plan-description">Build reports people understand, trust and act on—combining analytical rigour, UX and executive communication.</p>
-            <div class="plan-price"><span>Estimated investment</span><strong data-programme-price="storytelling">R49,500</strong><small data-programme-per-person="storytelling">R4,950 per person</small></div>
-            <div class="cohort-summary" data-programme-cohorts="storytelling">1 cohort of 10 · 4 × 2 hrs + clinic</div>
+            <p class="plan-description">Build reports and presentations people understand, trust and act on—using clear stories, visuals and dashboard design.</p>
+            <div class="plan-price"><span>Estimated investment</span><strong data-programme-price="storytelling">R42,500</strong><small data-programme-per-person="storytelling">R4,250 per person</small></div>
+            <div class="cohort-summary" data-programme-cohorts="storytelling">1 group of 10 · 4 × 2 hrs + dashboard review support</div>
             <div class="plan-divider"></div>
-            <ul class="plan-features"><li>Data-story structure</li><li>Dashboard UX</li><li>Executive communication</li><li>Dashboard critique clinic</li></ul>
-            <div class="plan-card-actions"><button class="button button-plan button-plan-primary estimate-button magnetic" type="button" data-programme="storytelling">Build this plan</button><a class="text-link" href="#planner">Details <span>↗</span></a></div>
-          </article>
-
-          <article class="programme-plan" data-programme-card="powerbi">
-            <div class="plan-topline"><span>Report builders</span></div>
-            <h3>Power BI<br><span>with Purpose</span></h3>
-            <p class="plan-description">Learn Power BI by solving meaningful business problems—not by memorising every menu and feature.</p>
-            <div class="plan-price"><span>Estimated investment</span><strong data-programme-price="powerbi">R54,500</strong><small data-programme-per-person="powerbi">R5,450 per person</small></div>
-            <div class="cohort-summary" data-programme-cohorts="powerbi">1 cohort of 10 · 5 × 2 hrs + clinic</div>
-            <div class="plan-divider"></div>
-            <ul class="plan-features"><li>Model foundations</li><li>Business-led design</li><li>DAX with context</li><li>Bring-your-report clinic</li></ul>
-            <div class="plan-card-actions"><button class="button button-plan estimate-button magnetic" type="button" data-programme="powerbi">Build this plan</button><a class="text-link" href="#planner">Details <span>↗</span></a></div>
+            <ul class="plan-features"><li>Find the message in the data</li><li>Choose clearer visuals</li><li>Design easier dashboards</li><li>Explain insight to decision-makers</li></ul>
+            <div class="plan-card-actions"><button class="button button-plan button-plan-primary estimate-button magnetic" type="button" data-programme="storytelling">Build this plan</button><a class="text-link" href="#planner">View details <span>↗</span></a></div>
           </article>
         </div>
-        <p class="pricing-disclaimer">Planning estimates include the core live programme and clinic. Travel, highly customised datasets and specialist environments are scoped separately.</p>
+        <p class="pricing-disclaimer">These are planning estimates for live, role-based learning. Final pricing can change if you need custom examples, travel or specialist technical environments.</p>
+        <p class="mobile-swipe-hint" aria-hidden="true">Swipe to compare roles →</p>
+      </div>
+    </section>
+
+    <section class="section tool-training-section" id="tools">
+      <div class="shell">
+        <div class="programme-heading-row reveal">
+          <div><div class="eyebrow"><span></span> Tool-based training</div><h2>Learn the tool. Keep the business outcome in view.</h2></div>
+          <p>Power BI and Microsoft Fabric sit in their own learning paths. We still teach them through real business questions—not as a tour of buttons and menus.</p>
+        </div>
+        <div class="tool-training-grid reveal">
+          <article class="tool-training-card" data-programme-card="powerbi">
+            <div class="tool-card-top"><span>Microsoft Power BI</span><strong>Reporting & dashboards</strong></div>
+            <h3>Power BI learning path</h3>
+            <p>Build practical reporting skills from importing data and creating measures to designing clear, useful dashboards.</p>
+            <div class="tool-levels"><span>Foundations</span><span>Business reporting</span><span>Advanced</span></div>
+            <div class="tool-price-row"><div><small>From</small><strong data-programme-price="powerbi">R32,500</strong><span data-programme-per-person="powerbi">R3,250 per person</span></div><div data-programme-cohorts="powerbi">1 group of 10 · 4 × 2 hrs + follow-up support</div></div>
+            <button class="button button-plan estimate-button" type="button" data-programme="powerbi">Build a Power BI plan</button>
+          </article>
+          <article class="tool-training-card" data-programme-card="fabric">
+            <div class="tool-card-top"><span>Microsoft Fabric</span><strong>Modern data platform</strong></div>
+            <h3>Microsoft Fabric learning path</h3>
+            <p>Understand where Fabric fits, how data moves through the platform and what business, analyst and technical teams need to know.</p>
+            <div class="tool-levels"><span>Leader briefing</span><span>Foundations</span><span>Applied Fabric</span></div>
+            <div class="tool-price-row"><div><small>From</small><strong data-programme-price="fabric">R32,500</strong><span data-programme-per-person="fabric">R3,250 per person</span></div><div data-programme-cohorts="fabric">1 group of 10 · 4 × 2 hrs + follow-up support</div></div>
+            <button class="button button-plan estimate-button" type="button" data-programme="fabric">Build a Fabric plan</button>
+          </article>
+        </div>
+        <p class="mobile-swipe-hint" aria-hidden="true">Swipe to compare tools →</p>
+      </div>
+    </section>
+
+    <section class="section individual-section" id="individuals">
+      <div class="shell">
+        <div class="programme-heading-row reveal">
+          <div><div class="eyebrow"><span></span> Learning for individuals</div><h2>You do not need a data job to start learning data.</h2></div>
+          <p>Short, beginner-friendly public courses for people who want to understand analytics, improve how they use information at work or explore a future in data.</p>
+        </div>
+        <div class="individual-pricing-shell reveal" aria-label="Individual learning courses">
+          <article class="individual-plan">
+            <div class="plan-topline"><span>Begin here</span></div><h3>Analytics Foundations<br><span>for Everyone</span></h3>
+            <p>Understand what data analytics is, the questions it answers and how organisations use it to solve problems.</p>
+            <div class="individual-price"><small>From</small><strong>R1,250</strong><span>per person</span></div>
+            <div class="individual-format">2 × 90 min live sessions</div>
+            <ul><li>No technical background needed</li><li>Plain-language examples</li><li>Follow-up learning guide</li></ul>
+            <div class="individual-actions"><button class="button button-plan individual-interest" type="button" data-course="analytics">Register interest</button><button class="text-button individual-approval" type="button" data-individual-approval="analytics">Ask my manager to fund it</button></div>
+          </article>
+          <article class="individual-plan individual-plan-featured">
+            <div class="plan-topline"><span>Use data in your job</span><b>Popular</b></div><h3>Data Confidence<br><span>for Your Role</span></h3>
+            <p>See how data can help in finance, HR, sales, operations, marketing, projects or another business role.</p>
+            <div class="individual-price"><small>From</small><strong>R1,500</strong><span>per person</span></div>
+            <div class="individual-format">2 × 90 min + follow-up support</div>
+            <ul><li>Choose your work context</li><li>Read reports and KPIs</li><li>Ask better questions</li></ul>
+            <div class="individual-actions"><button class="button button-plan individual-interest" type="button" data-course="role">Register interest</button><button class="text-button individual-approval" type="button" data-individual-approval="role">Ask my manager to fund it</button></div>
+          </article>
+          <article class="individual-plan">
+            <div class="plan-topline"><span>See information clearly</span></div><h3>Visualisation<br><span>Fundamentals</span></h3>
+            <p>Learn which chart to use, how to avoid misleading visuals and how to make information easier to understand.</p>
+            <div class="individual-price"><small>From</small><strong>R1,250</strong><span>per person</span></div>
+            <div class="individual-format">2 × 90 min live sessions</div>
+            <ul><li>Chart selection</li><li>Clear visual hierarchy</li><li>Before-and-after examples</li></ul>
+            <div class="individual-actions"><button class="button button-plan individual-interest" type="button" data-course="visualisation">Register interest</button><button class="text-button individual-approval" type="button" data-individual-approval="visualisation">Ask my manager to fund it</button></div>
+          </article>
+          <article class="individual-plan">
+            <div class="plan-topline"><span>Explain the meaning</span></div><h3>Data Storytelling<br><span>Foundations</span></h3>
+            <p>Turn numbers into a clear message, explain the context and recommend the next action with confidence.</p>
+            <div class="individual-price"><small>From</small><strong>R1,750</strong><span>per person</span></div>
+            <div class="individual-format">3 × 90 min + follow-up support</div>
+            <ul><li>Find the key message</li><li>Structure a simple story</li><li>Present an insight clearly</li></ul>
+            <div class="individual-actions"><button class="button button-plan individual-interest" type="button" data-course="story">Register interest</button><button class="text-button individual-approval" type="button" data-individual-approval="story">Ask my manager to fund it</button></div>
+          </article>
+        </div>
+        <div class="individual-note reveal"><strong>Learning for one person—not only large teams.</strong><span>Public cohort dates are confirmed once enough learners have registered interest. Your details are only used to contact you about the selected course.</span></div>
+        <p class="mobile-swipe-hint" aria-hidden="true">Swipe to compare individual courses →</p>
       </div>
     </section>
 
@@ -247,33 +334,39 @@
 
         <div class="planner-grid reveal">
           <form class="planner-form" id="learning-planner" novalidate>
-            <fieldset><legend>1. Choose a programme</legend><div class="segmented programme-selector" role="radiogroup" aria-label="Choose a programme">
-              <label><input type="radio" name="programme" value="confidence" checked><span>Data confidence</span></label>
-              <label><input type="radio" name="programme" value="managers"><span>Managers</span></label>
-              <label><input type="radio" name="programme" value="storytelling"><span>Storytelling</span></label>
-              <label><input type="radio" name="programme" value="powerbi"><span>Power BI</span></label>
+            <fieldset><legend>1. Who is the learning for?</legend><div class="programme-choice-grid" role="radiogroup" aria-label="Choose a learning programme">
+              <label><input type="radio" name="programme" value="executive"><span><strong>Executives</strong><small>Data-Smart Executive</small></span></label>
+              <label><input type="radio" name="programme" value="business" checked><span><strong>Business professionals</strong><small>Data confidence for your role</small></span></label>
+              <label><input type="radio" name="programme" value="managers"><span><strong>Managers</strong><small>Decision intelligence</small></span></label>
+              <label><input type="radio" name="programme" value="storytelling"><span><strong>Analysts & BI teams</strong><small>Storytelling and dashboard design</small></span></label>
+              <label><input type="radio" name="programme" value="powerbi"><span><strong>Power BI learners</strong><small>Tool-based training</small></span></label>
+              <label><input type="radio" name="programme" value="fabric"><span><strong>Fabric learners</strong><small>Tool-based training</small></span></label>
             </div></fieldset>
 
-            <fieldset><legend>2. How many people need the programme?</legend>
-              <div class="participant-control"><button type="button" class="counter-button" data-decrement aria-label="Remove one participant">−</button><label class="participant-number"><span class="sr-only">Number of participants</span><input type="number" id="participant-number" min="4" max="40" value="12" inputmode="numeric"><small>participants</small></label><button type="button" class="counter-button" data-increment aria-label="Add one participant">+</button></div>
-              <input class="participant-range" id="participant-range" type="range" min="4" max="40" value="12" aria-label="Number of participants"><div class="range-labels"><span>4</span><span>40</span></div>
+            <fieldset><legend>2. How many people need the learning?</legend>
+              <div class="participant-control"><button type="button" class="counter-button" data-decrement aria-label="Remove one participant">−</button><label class="participant-number"><span class="sr-only">Number of participants</span><input type="number" id="participant-number" min="1" max="40" value="10" inputmode="numeric"><small>people</small></label><button type="button" class="counter-button" data-increment aria-label="Add one participant">+</button></div>
+              <input class="participant-range" id="participant-range" type="range" min="1" max="40" value="10" aria-label="Number of participants"><div class="range-labels"><span>1</span><span>40</span></div>
             </fieldset>
 
-            <fieldset><legend>3. How should delivery balance learning and BAU?</legend><div class="choice-cards" role="radiogroup" aria-label="Choose delivery priority">
-              <label><input type="radio" name="bau" value="protect" checked><span><strong>Protect BAU</strong><small>Smaller rotating cohorts</small></span></label>
-              <label><input type="radio" name="bau" value="balanced"><span><strong>Balanced</strong><small>Standard cohort sizes</small></span></label>
-              <label><input type="radio" name="bau" value="fast"><span><strong>Fastest completion</strong><small>Sessions grouped into fewer days</small></span></label>
+            <fieldset><legend>3. How should the sessions fit around BAU?</legend><div class="choice-cards" role="radiogroup" aria-label="Choose delivery priority">
+              <label><input type="radio" name="bau" value="protect" checked><span><strong>Protect BAU</strong><small>Smaller rotating groups</small></span></label>
+              <label><input type="radio" name="bau" value="balanced"><span><strong>Balanced</strong><small>Standard group sizes</small></span></label>
+              <label><input type="radio" name="bau" value="fast"><span><strong>Finish sooner</strong><small>Sessions grouped into fewer days</small></span></label>
             </div></fieldset>
 
-            <fieldset><legend>4. Add support after the learning</legend><label class="select-label" for="support-level">Support level</label><select id="support-level" name="support"><option value="core">Core programme + clinic</option><option value="readout">Add leadership readout (+R7,500)</option><option value="continuity">Add 30-day capability continuity (+R15,000)</option></select></fieldset>
+            <fieldset><legend>4. What support should follow the learning?</legend><div class="support-choice-grid" role="radiogroup" aria-label="Choose follow-up support">
+              <label><input type="radio" name="support" value="core" checked><span><strong>Follow-up support</strong><small>Included in the programme</small></span></label>
+              <label><input type="radio" name="support" value="readout"><span><strong>Leadership summary</strong><small>Add R7,500</small></span></label>
+              <label><input type="radio" name="support" value="continuity"><span><strong>30-day team support</strong><small>Add R15,000</small></span></label>
+            </div></fieldset>
           </form>
 
           <aside class="plan-result" aria-live="polite" aria-atomic="true">
             <div class="plan-result-top"><span class="result-kicker">Recommended learning plan</span><span class="estimate-pill">Live estimate</span></div>
-            <h3 id="result-title">Data Confidence & AI Judgement</h3><p id="result-outcome">Build stronger data confidence and AI judgement across business teams.</p>
-            <div class="result-metrics"><div><span>Participants</span><strong id="result-participants">12</strong></div><div><span>Cohort structure</span><strong id="result-cohorts">2 × 6</strong></div><div><span>Maximum away from BAU</span><strong id="result-bau">6 people</strong></div><div><span>Live learning days</span><strong id="result-window">4 session days / cohort</strong></div></div>
-            <p class="learning-days-note" id="result-days-note">Each learning day is a focused session, not a full day away from BAU.</p><div class="price-summary"><div><span>Estimated programme investment</span><strong id="result-price">R36,500</strong></div><div><span>Effective investment</span><strong id="result-per-person">R3,042 per person</strong></div></div>
-            <div class="plan-includes"><span>Included</span><ul id="result-includes"><li>Role-based live facilitation</li><li>Applied business exercises</li><li>Participant toolkit and clinic</li></ul></div>
+            <h3 id="result-title">Data Confidence for Business Professionals</h3><p id="result-outcome">Understand data, reports and analytics in the context of everyday business work.</p>
+            <div class="result-metrics"><div><span>Participants</span><strong id="result-participants">10</strong></div><div><span>Cohort structure</span><strong id="result-cohorts">2 × 5</strong></div><div><span>Maximum away from BAU</span><strong id="result-bau">5 people</strong></div><div><span>Live learning days</span><strong id="result-window">4 focused session days</strong></div></div>
+            <p class="learning-days-note" id="result-days-note">Each learning day is a focused session, not a full day away from BAU.</p><div class="price-summary"><div><span>Estimated programme investment</span><strong id="result-price">R31,000</strong></div><div><span>Effective investment</span><strong id="result-per-person">R3,100 per person</strong></div></div>
+            <div class="plan-includes"><span>Included</span><ul id="result-includes"><li>Role-based live facilitation</li><li>Applied business exercises</li><li>Participant toolkit and follow-up support</li></ul></div>
             <div class="plan-actions"><a class="button button-primary button-large magnetic" id="request-plan" href="#contact">Request this plan <span aria-hidden="true">↗</span></a><button class="button button-ghost button-large" id="copy-plan" type="button">Copy summary</button></div>
             <button class="manager-pitch" id="open-manager-email" type="button" aria-haspopup="dialog" aria-controls="manager-email-dialog">
               <span class="manager-pitch-icon" aria-hidden="true">✦</span>
@@ -293,7 +386,7 @@
           <article class="method-step"><span>01</span><div><small>DIAGNOSE</small><h3>Find the real capability gap.</h3><p>Clarify the audience, business outcome, confidence level and operational constraints before designing the learning.</p></div></article>
           <article class="method-step"><span>02</span><div><small>DESIGN</small><h3>Teach by role—not by generic syllabus.</h3><p>Executives, managers, business users and report builders learn only what their role requires.</p></div></article>
           <article class="method-step"><span>03</span><div><small>DELIVER</small><h3>Build capability inside the work.</h3><p>Focused cohorts keep BAU covered while people apply the learning between sessions.</p></div></article>
-          <article class="method-step"><span>04</span><div><small>REINFORCE</small><h3>Turn attendance into adoption.</h3><p>Participants use real problems, dashboards and KPIs, then return for a focused clinic.</p></div></article>
+          <article class="method-step"><span>04</span><div><small>REINFORCE</small><h3>Turn attendance into adoption.</h3><p>Participants use real problems, dashboards and KPIs, then return for a focused support session.</p></div></article>
         </div>
       </div>
     </section>
@@ -302,8 +395,8 @@
       <div class="shell">
         <div class="executive-card reveal tilt-card">
           <div class="executive-grid" aria-hidden="true"></div>
-          <div class="executive-copy"><div class="eyebrow light-eyebrow"><span></span> For Exco and senior leaders</div><h2>The Data-Smart Executive</h2><p>You do not need to become a data scientist. You do need to know which questions to ask about KPIs, dashboards, AI-generated insight and decision risk.</p><div class="executive-tags"><span>90-minute briefing</span><span>Up to 12 leaders</span><span>Founder-led</span></div></div>
-          <div class="executive-offer"><span>Starting investment</span><strong>R15,000</strong><small>Executive session</small><a class="button button-light magnetic" href="#contact">Plan a leadership briefing</a></div>
+          <div class="executive-copy"><div class="eyebrow light-eyebrow"><span></span> For Exco and senior leaders</div><h2>The Data-Smart Executive</h2><p>You do not need a degree or a long course to understand data in the meeting. This focused briefing helps leaders understand the numbers, challenge assumptions and know what to ask their data and AI teams.</p><div class="executive-tags"><span>90-minute briefing</span><span>Up to 12 leaders</span><span>Founder-led</span><span>Plain business language</span></div></div>
+          <div class="executive-offer"><span>Starting investment</span><strong>R10,000</strong><small>Executive session</small><a class="button button-light magnetic" href="#contact">Plan a leadership briefing</a></div>
         </div>
       </div>
     </section>
@@ -321,13 +414,25 @@
 
     <section class="section contact-section" id="contact">
       <div class="shell contact-grid">
-        <div class="contact-copy reveal"><div class="eyebrow"><span></span> Start with the operating reality</div><h2>Design a learning plan your business can actually support.</h2><p>Tell us who needs to learn, what must improve and how much BAU coverage you need to protect. We will recommend the right pathway, cohort structure and delivery rhythm.</p><div class="contact-points"><span>No generic catalogue pitch</span><span>No forced full-team shutdown</span><span>No unnecessary modules</span></div></div>
+        <div class="contact-copy reveal"><div class="eyebrow"><span></span> Start with the operating reality</div><h2>Tell us what you want to understand or improve.</h2><p>Whether you are planning learning for a team or starting on your own, tell us who it is for and what you want to become more confident with. We will recommend a clear next step.</p><div class="contact-points"><span>No generic catalogue pitch</span><span>No forced full-team shutdown</span><span>No unnecessary modules</span></div></div>
         <form class="contact-form reveal" id="contact-form">
           <div class="form-row"><label>Full name<input type="text" name="name" autocomplete="name" required></label><label>Work email<input type="email" name="email" autocomplete="email" required></label></div>
           <div class="form-row"><label>Organisation<input type="text" name="organisation" autocomplete="organization" required></label><label>Role<input type="text" name="role" autocomplete="organization-title"></label></div>
-          <div class="form-row"><label>Audience<select name="audience"><option>Business teams</option><option>Managers</option><option>Analysts / BI teams</option><option>Exco / senior leaders</option><option>Mixed audience</option></select></label><label>Team size<input type="number" name="teamSize" min="1" max="500" value="12"></label></div>
-          <label>Main capability need<select name="need" id="contact-need"><option>Data Confidence & AI Judgement</option><option>Decision Intelligence for Managers</option><option>Data Storytelling & Dashboard Decision Design</option><option>Power BI with Purpose</option><option>The Data-Smart Executive</option><option>Not sure yet</option></select></label>
-          <label>What needs to improve?<textarea name="message" rows="5" placeholder="For example: dashboard adoption, Power BI capability, KPI interpretation, AI judgement, reporting quality or manager decision-making."></textarea></label>
+          <div class="form-row"><label>Audience<select name="audience"><option>Business professionals</option><option>Managers / team leaders</option><option>Analysts / BI teams</option><option>Executives / senior leaders</option><option>Power BI learners</option><option>Fabric learners</option><option>Individual learner</option><option>Mixed audience</option></select></label><label>Number of learners<input type="number" name="teamSize" min="1" max="500" value="10"></label></div>
+          <label>Main learning need<select name="need" id="contact-need">
+            <option>The Data-Smart Executive</option>
+            <option>Data Confidence for Business Professionals</option>
+            <option>Decision Intelligence for Managers</option>
+            <option>Data Storytelling &amp; Dashboard Decision Design</option>
+            <option>Power BI Foundations</option>
+            <option>Microsoft Fabric Foundations</option>
+            <option>Analytics Foundations for Everyone</option>
+            <option>Data Confidence for Your Role — Individual</option>
+            <option>Visualisation Fundamentals</option>
+            <option>Data Storytelling Foundations</option>
+            <option>Not sure yet</option>
+          </select></label>
+          <label>What needs to improve?<textarea name="message" rows="5" placeholder="For example: I want our managers to understand KPIs better, I want to learn what analytics is, or our team needs practical Power BI support."></textarea></label>
           <input type="hidden" name="planSummary" id="plan-summary-field"><button class="button button-primary button-large magnetic" type="submit">Prepare my enquiry <span aria-hidden="true">↗</span></button><p class="form-note">This prototype prepares an email to hello@notabot.studio. A production form endpoint can be connected before launch.</p>
         </form>
       </div>
@@ -336,7 +441,7 @@
 
   <footer>
     <div class="footer-marquee" aria-hidden="true"><span>BUILD CONFIDENCE · KEEP BAU MOVING · BUILD CONFIDENCE · KEEP BAU MOVING ·</span></div>
-    <div class="shell footer-grid"><div class="footer-brand"><img src="assets/logo/notabot-wordmark-nav.png" alt="Notabot Studio"><p>Human-centred data capability for the AI era.</p></div><div><strong>Programmes</strong><a href="#programmes">Business teams</a><a href="#programmes">Managers</a><a href="#programmes">BI teams</a></div><div><strong>Explore</strong><a href="#planner">Plan & pricing</a><a href="#method">How it works</a><a href="#vision">Our vision</a></div><div><strong>Contact</strong><a href="mailto:hello@notabot.studio">hello@notabot.studio</a><a href="#contact">Design a learning plan</a></div></div>
+    <div class="shell footer-grid"><div class="footer-brand"><img src="assets/logo/notabot-wordmark-nav.png" alt="Notabot Studio"><p>Human-centred data capability for the AI era.</p></div><div><strong>Learn by role</strong><a href="#programmes">Executives</a><a href="#programmes">Business professionals</a><a href="#programmes">Managers & analysts</a></div><div><strong>Explore</strong><a href="#individuals">For individuals</a><a href="#tools">Tool training</a><a href="#planner">Plan & pricing</a></div><div><strong>Contact</strong><a href="mailto:hello@notabot.studio">hello@notabot.studio</a><a href="#contact">Design a learning plan</a></div></div>
     <div class="shell footer-bottom"><span>© <span data-year></span> Notabot Studio.</span><span>Build confidence. Keep BAU moving.</span></div>
   </footer>
 
@@ -349,7 +454,7 @@
       <div class="manager-email-content">
         <label>Subject<input id="manager-email-subject" type="text" autocomplete="off"></label>
         <label>Email body<textarea id="manager-email-body" rows="16"></textarea></label>
-        <div class="manager-email-note"><span aria-hidden="true">✓</span><p>The draft includes the business outcome, cohort structure, BAU protection, duration and estimated investment. Edit any wording before sending.</p></div>
+        <div class="manager-email-note"><span aria-hidden="true">✓</span><p>The draft includes the business outcome, group structure, BAU protection, duration and estimated investment. Edit any wording before sending.</p></div>
       </div>
       <footer class="manager-email-actions">
         <button class="button button-primary" id="copy-manager-email" type="button">Copy email</button>
@@ -359,6 +464,7 @@
   </dialog>
 
   <div class="toast" role="status" aria-live="polite" data-toast>Plan summary copied.</div>
+  <a class="mobile-sticky-cta" href="#planner" data-mobile-cta>Build my learning plan <span aria-hidden="true">↗</span></a>
   <script src="main.js"></script>
 </body>
 </html>

@@ -802,3 +802,217 @@ h1,h2,h3,h4,h5,h6,.kinetic-title,.manifesto-line,.button,.desktop-nav,.mobile-me
   .question-panel{grid-area:auto;opacity:1;transform:none;pointer-events:auto;padding:24px;border:1px solid var(--line);border-radius:18px}
   .question-nav,.questions-note{display:none}
 }
+
+
+/* ========================================================================== 
+   V9 — ROLE-BASED, INDIVIDUAL & TOOL LEARNING / MOBILE-FIRST REFINEMENT
+   ========================================================================== */
+
+/* Native controls stay readable even when the browser opens a system menu. */
+:root{color-scheme:dark}
+select,option{background-color:#081421;color:#f3f7fb}
+select option:checked{background:#536be8;color:#fff}
+
+/* Navigation can hold the clearer role / individual / tool architecture. */
+.desktop-nav{gap:clamp(18px,2.2vw,38px)}
+.desktop-nav a{font-size:.76rem}
+
+/* Price toolbar: accessible counter instead of a low-contrast native dropdown. */
+.pricing-toolbar{grid-template-columns:minmax(260px,1fr) auto auto;align-items:center}
+.people-planner{display:flex;align-items:center;gap:10px;min-width:0}
+.people-label{font-size:.68rem;color:#8ea1b4;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.pricing-counter{display:grid;grid-template-columns:38px 58px 38px;align-items:center;border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#07111e}
+.pricing-counter button{width:38px;height:40px;border:0;background:transparent;color:#c9d6df;font-size:1.3rem;cursor:pointer}
+.pricing-counter button:hover{background:rgba(121,226,220,.08);color:var(--cyan)}
+.pricing-counter input{width:58px;height:40px;border:0;border-inline:1px solid var(--line);background:#0b1a2a;color:#fff;text-align:center;font:750 .9rem var(--font-display);outline:none;-moz-appearance:textfield}
+.pricing-counter input::-webkit-inner-spin-button,.pricing-counter input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.quick-size-list{display:flex;gap:5px;min-width:0}
+.quick-size-list button{min-width:34px;height:34px;padding:0 8px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.025);color:#8296a9;font:700 .7rem var(--font-display);cursor:pointer}
+.quick-size-list button:hover,.quick-size-list button.active{border-color:rgba(121,226,220,.4);background:rgba(121,226,220,.09);color:#eff8fa}
+
+.role-pricing-shell{grid-template-columns:repeat(4,minmax(0,1fr))}
+.role-pricing-shell .programme-plan{min-height:650px}
+.role-pricing-shell .plan-description{min-height:104px}
+.plan-topline b{white-space:nowrap}
+
+/* Tool-based learning remains visibly separate from role-based capability. */
+.tool-training-section{background:linear-gradient(180deg,#050b14,#071321 52%,#050b14)}
+.tool-training-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.tool-training-card{position:relative;display:flex;flex-direction:column;min-height:510px;padding:30px;border:1px solid var(--line-strong);border-radius:24px;background:radial-gradient(circle at 100% 0,rgba(111,130,255,.14),transparent 38%),linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012));overflow:hidden}
+.tool-training-card:nth-child(2){background:radial-gradient(circle at 100% 0,rgba(121,226,220,.12),transparent 38%),linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012))}
+.tool-card-top{display:flex;justify-content:space-between;gap:18px;align-items:center;color:#8196aa;font-size:.68rem;text-transform:uppercase;letter-spacing:.11em;font-weight:800}
+.tool-card-top strong{color:var(--cyan);font-family:var(--font-display);font-size:.68rem}
+.tool-training-card h3{margin:60px 0 16px;font-size:clamp(2.3rem,3.3vw,4.2rem);line-height:.98;letter-spacing:-.045em}
+.tool-training-card>p{max-width:590px;margin:0;color:#9babb9;line-height:1.68}
+.tool-levels{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0}
+.tool-levels span{padding:8px 11px;border:1px solid var(--line);border-radius:999px;color:#b7c5d0;font-size:.7rem;font-weight:700}
+.tool-price-row{display:grid;grid-template-columns:auto minmax(180px,1fr);gap:24px;align-items:end;margin-top:auto;padding-top:28px;border-top:1px solid var(--line)}
+.tool-price-row>div:first-child{display:grid;gap:4px}.tool-price-row small{color:#7f93a5;text-transform:uppercase;letter-spacing:.11em;font-weight:800}.tool-price-row strong{font:700 2.2rem var(--font-display);letter-spacing:-.04em}.tool-price-row span{color:#7890a4;font-size:.72rem}
+.tool-price-row>div:last-child{color:#8fa2b4;font-size:.77rem;line-height:1.5;text-align:right}
+.tool-training-card .button{margin-top:22px;align-self:flex-start}
+
+/* Individual learning mirrors the pricing clarity without pretending it is corporate procurement. */
+.individual-section{background:#060e18}
+.individual-pricing-shell{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#07101b}
+.individual-plan{position:relative;display:flex;flex-direction:column;min-height:600px;padding:24px 22px;border-right:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.006))}
+.individual-plan:last-child{border-right:0}
+.individual-plan-featured{background:linear-gradient(180deg,rgba(92,111,240,.16),rgba(92,111,240,.025))}
+.individual-plan-featured::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--yellow))}
+.individual-plan h3{margin:32px 0 14px;font-size:clamp(1.55rem,2vw,2.1rem);line-height:1.04;letter-spacing:-.04em}
+.individual-plan h3 span{color:#b8c6d2;font-weight:600}
+.individual-plan>p{min-height:108px;margin:0;color:#94a6b5;line-height:1.62;font-size:.86rem}
+.individual-price{display:grid;gap:2px;margin:28px 0 14px}.individual-price small{color:#7d91a4;text-transform:uppercase;letter-spacing:.12em;font-weight:800}.individual-price strong{font:700 2.2rem var(--font-display);letter-spacing:-.04em}.individual-price span{color:#7890a3;font-size:.72rem}
+.individual-format{padding:10px 0 18px;border-bottom:1px solid var(--line);color:#a9b8c4;font-size:.76rem;font-weight:700}
+.individual-plan ul{display:grid;gap:10px;margin:20px 0 28px;padding:0;list-style:none;color:#9db0bf;font-size:.78rem}.individual-plan li::before{content:"✓";color:var(--cyan);margin-right:9px}
+.individual-actions{display:grid;gap:10px;margin-top:auto}.individual-actions .button{width:100%}.text-button{border:0;background:transparent;color:#b7c7d3;font:700 .75rem var(--font-display);cursor:pointer;text-align:left;padding:6px 2px}.text-button:hover{color:var(--cyan)}
+.individual-note{display:flex;justify-content:space-between;gap:28px;margin-top:16px;padding:16px 18px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.018)}
+.individual-note strong{font-family:var(--font-display)}.individual-note span{max-width:660px;color:#8095a8;font-size:.75rem;line-height:1.55}
+.mobile-swipe-hint{display:none;margin:12px 0 0;color:#6f8497;font-size:.72rem;text-align:center}
+
+/* Planner choices use high-contrast cards instead of a white native dropdown. */
+.programme-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.programme-choice-grid label,.support-choice-grid label{position:relative;cursor:pointer}
+.programme-choice-grid input,.support-choice-grid input{position:absolute;opacity:0;pointer-events:none}
+.programme-choice-grid span,.support-choice-grid span{min-height:78px;display:grid;align-content:center;gap:5px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#071321;transition:.2s ease}
+.programme-choice-grid strong,.support-choice-grid strong{font:650 .78rem var(--font-display);color:#dce5ec}.programme-choice-grid small,.support-choice-grid small{color:#7e93a6;font-size:.67rem;line-height:1.4}
+.programme-choice-grid input:checked+span,.support-choice-grid input:checked+span{border-color:rgba(121,226,220,.5);background:linear-gradient(145deg,rgba(121,226,220,.12),rgba(111,130,255,.09));box-shadow:inset 0 0 0 1px rgba(121,226,220,.08)}
+.support-choice-grid{display:grid;gap:8px}
+.support-choice-grid span{min-height:66px}
+
+/* Mobile sticky action and touch-friendly controls. */
+.mobile-sticky-cta{display:none}
+
+@media (max-width:1180px){
+  .desktop-nav{display:none}
+  .role-pricing-shell{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .individual-pricing-shell{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .individual-plan:nth-child(2){border-right:0}.individual-plan:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+
+@media (max-width:900px){
+  .pricing-toolbar{grid-template-columns:1fr;gap:14px}
+  .people-planner{flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--line)}
+  .bau-toggle{grid-column:auto}
+  .tool-training-grid{grid-template-columns:1fr}
+  .role-pricing-shell,.individual-pricing-shell{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;border:0;border-radius:0;background:transparent;margin-inline:calc(var(--gutter) * -1);padding:2px var(--gutter) 16px;scrollbar-width:none}
+  .role-pricing-shell::-webkit-scrollbar,.individual-pricing-shell::-webkit-scrollbar{display:none}
+  .role-pricing-shell .programme-plan,.individual-plan{flex:0 0 min(84vw,390px);scroll-snap-align:start;border:1px solid var(--line);border-radius:22px;min-height:570px}
+  .individual-plan:nth-child(n){border:1px solid var(--line)}
+  .mobile-swipe-hint{display:block}
+  .tool-price-row{grid-template-columns:1fr;align-items:start}.tool-price-row>div:last-child{text-align:left}
+  .individual-note{display:grid}
+}
+
+@media (max-width:640px){
+  body{padding-bottom:78px}
+  .hero-canvas,.orbit-label{display:none}
+  .hero-orbit{min-height:290px;margin-top:-20px}
+  .hero-orbit::before{width:260px;height:260px;background:radial-gradient(circle,rgba(121,226,220,.08),transparent 64%)}
+  .hero-orbit::after{width:205px;height:205px}
+  .core-copy strong{font-size:1.35rem}.core-copy span{font-size:.57rem}
+  .hero-proof{padding:14px 0}
+  .quick-size-list{width:100%;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}.quick-size-list::-webkit-scrollbar{display:none}
+  .pricing-counter{grid-template-columns:44px 62px 44px}.pricing-counter button,.pricing-counter input{height:46px}
+  .role-pricing-shell .programme-plan,.individual-plan{flex-basis:88vw;min-height:540px;padding:20px}
+  .role-pricing-shell .plan-description,.individual-plan>p{min-height:auto}
+  .tool-training-card{min-height:500px;padding:22px}.tool-training-card h3{margin-top:42px;font-size:2.6rem}
+  .programme-choice-grid{grid-template-columns:1fr}
+  .programme-choice-grid span{min-height:70px}
+  .choice-cards{grid-template-columns:1fr}
+  .support-choice-grid span{min-height:62px}
+  .mobile-sticky-cta{position:fixed;display:flex;align-items:center;justify-content:space-between;z-index:50;left:12px;right:12px;bottom:10px;min-height:56px;padding:0 20px;border:1px solid rgba(141,161,255,.72);border-radius:18px;background:linear-gradient(135deg,#536be8,#6f82ff);color:#fff;font:700 .86rem var(--font-display);box-shadow:0 18px 48px rgba(0,0,0,.42);transition:opacity .2s ease,transform .2s ease}
+  .mobile-sticky-cta.hidden{opacity:0;transform:translateY(90px);pointer-events:none}
+  .individual-actions{gap:8px}.text-button{text-align:center;padding:10px}
+  .individual-note{padding:14px}
+  .contact-form input,.contact-form select,.contact-form textarea{font-size:16px;min-height:48px}
+  .button,.counter-button{min-height:48px}
+  .method-rail{overflow-x:auto;scroll-snap-type:x mandatory}.method-step{scroll-snap-align:start}
+}
+
+/* Final mobile containment and planner stacking. */
+html,body{max-width:100%;overflow-x:hidden}
+@media (max-width:900px){
+  .planner-grid{grid-template-columns:minmax(0,1fr)!important}
+  .planner-form,.plan-result{width:100%;min-width:0;position:relative;top:auto}
+}
+@media (max-width:640px){
+  .plan-result h3{font-size:clamp(2rem,10vw,3rem);overflow-wrap:anywhere}
+  .result-metrics,.price-summary,.plan-includes ul{grid-template-columns:1fr}
+}
+
+/* ========================================================================== 
+   V10 — HERO KERNING FIX & FASTER COMMON-QUESTIONS SECTION
+   ========================================================================== */
+
+/* Keep the hero word crisp: separate the f/i pair so the display font cannot collide. */
+.title-line-b{
+  letter-spacing:-.026em;
+  white-space:nowrap;
+}
+.confidence-f,.confidence-i{
+  display:inline-block;
+  position:relative;
+}
+.confidence-f{margin-right:.018em}
+.confidence-i{margin-left:.004em}
+
+/* The questions are now a compact interactive section, not a long pinned scroll scene. */
+.questions{
+  height:auto;
+  padding:clamp(88px,9vw,132px) 0;
+}
+.questions-sticky{
+  position:relative;
+  top:auto;
+  height:auto;
+  min-height:0;
+  overflow:visible;
+  display:block;
+}
+.questions-shell{
+  grid-template-columns:190px minmax(0,1fr);
+  grid-template-rows:auto auto auto;
+  min-height:0;
+  align-items:start;
+}
+.questions-meta{
+  grid-column:1;
+  grid-row:1 / span 3;
+}
+.questions-stage{
+  grid-column:2;
+  grid-row:1;
+  min-height:clamp(330px,35vw,470px);
+}
+.question-nav{
+  grid-column:2;
+  grid-row:2;
+}
+.questions-note{
+  position:static;
+  grid-column:2;
+  grid-row:3;
+  margin:12px 0 0;
+}
+
+@media (max-width:900px){
+  .questions{height:auto;padding:92px 0}
+  .questions-sticky{position:relative;height:auto;overflow:visible}
+  .questions-shell{
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto auto auto;
+    gap:22px;
+    min-height:0;
+  }
+  .questions-meta{grid-column:1;grid-row:1}
+  .questions-stage{grid-column:1;grid-row:2;min-height:340px}
+  .question-nav{grid-column:1;grid-row:3}
+  .questions-note{grid-column:1;grid-row:4}
+}
+
+@media (max-width:640px){
+  .title-line-b{letter-spacing:-.018em}
+  .confidence-f{margin-right:.022em}
+  .questions{padding:78px 0}
+  .questions-stage{min-height:0}
+}

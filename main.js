@@ -310,7 +310,7 @@ function updatePlan() {
   if (impactExampleCause) impactExampleCause.textContent = impactOptions[plan.impact]?.shortLabel || impactOptions.later.shortLabel;
 
   const includes = document.querySelector('#result-includes');
-  const items = ['Role-based live facilitation', 'Applied business exercises', 'Participant toolkit and follow-up support', '2% Notabot-funded impact contribution'];
+  const items = ['Role-based live facilitation', 'Applied business exercises', 'Participant toolkit and follow-up support', 'Digital completion badge', '2% Notabot-funded impact contribution'];
   if (plan.support === 'readout') items.push('Leadership summary');
   if (plan.support === 'continuity') items.push('30-day team support');
   includes.innerHTML = items.map(item => `<li>${item}</li>`).join('');
@@ -335,6 +335,7 @@ function updatePlan() {
 function selectProgramme(programmeKey) {
   const radio = planner?.querySelector(`input[name="programme"][value="${programmeKey}"]`);
   if (radio) radio.checked = true;
+  markPlannerStep(1);
   if (pricingTeamSize && participantNumber) participantNumber.value = pricingTeamSize.value;
   if (pricingBauToggle) {
     const bauRadio = planner?.querySelector(`input[name="bau"][value="${pricingBauToggle.checked ? 'protect' : 'balanced'}"]`);
@@ -757,6 +758,254 @@ function initContactForm() {
   });
 }
 
+
+const plannerTouchedSteps = new Set();
+let plannerQuestCelebrated = false;
+
+const confidenceLevels = [
+  { max: 25, name: 'Data Explorer', kicker: 'Foundation badge unlocked', message: 'You are at a strong starting point. The next step is learning the language of data and building confidence with everyday examples.' },
+  { max: 50, name: 'Confident Questioner', kicker: 'Questioning badge unlocked', message: 'You already look for context. The next step is becoming more consistent when challenging numbers, reports and AI-generated answers.' },
+  { max: 75, name: 'Insight Interpreter', kicker: 'Interpretation badge unlocked', message: 'You can see the signal. The next step is connecting evidence to causes, decisions and clearer communication.' },
+  { max: 100, name: 'Decision Builder', kicker: 'Decision badge unlocked', message: 'You already think beyond the number. The next step is sharpening the way you influence action, tell the story and guide others.' }
+];
+
+const confidenceRecommendations = {
+  executive: { type: 'programme', key: 'executive', name: 'The Data-Smart Executive', reason: 'A focused route to understanding analytics, KPIs, dashboards and AI without a long technical course.' },
+  business: { type: 'programme', key: 'business', name: 'Data Confidence for Your Role', reason: 'Plain-language learning linked to the work you already do.' },
+  managers: { type: 'programme', key: 'managers', name: 'Decision Intelligence for Managers', reason: 'Build stronger KPI conversations, problem framing and action-oriented decisions.' },
+  storytelling: { type: 'programme', key: 'storytelling', name: 'Data Storytelling & Decision Design', reason: 'Turn analysis into reports and stories that people understand, trust and act on.' },
+  powerbi: { type: 'programme', key: 'powerbi', name: 'Power BI Foundations', reason: 'Build practical reporting and dashboard skills around real business questions.' },
+  fabric: { type: 'programme', key: 'fabric', name: 'Microsoft Fabric Foundations', reason: 'Understand how the platform fits together without unnecessary technical overload.' }
+};
+
+function triggerConfetti(originX = window.innerWidth / 2, pieces = 34) {
+  if (reducedMotion) return;
+  const palette = ['#79e2dc', '#6f82ff', '#79bfff', '#f6df70', '#91e5b2'];
+  for (let index = 0; index < pieces; index += 1) {
+    const piece = document.createElement('i');
+    piece.className = 'confetti-piece';
+    const x = Math.max(12, Math.min(window.innerWidth - 12, originX + (Math.random() - .5) * 260));
+    piece.style.left = `${x}px`;
+    piece.style.setProperty('--piece-color', palette[index % palette.length]);
+    piece.style.setProperty('--drift', `${(Math.random() - .5) * 320}px`);
+    piece.style.setProperty('--spin', `${Math.round((Math.random() * 900) + 360)}deg`);
+    piece.style.setProperty('--duration', `${1.25 + Math.random() * .75}s`);
+    piece.style.animationDelay = `${Math.random() * .18}s`;
+    piece.style.width = `${5 + Math.random() * 6}px`;
+    piece.style.height = `${8 + Math.random() * 10}px`;
+    document.body.appendChild(piece);
+    window.setTimeout(() => piece.remove(), 2400);
+  }
+}
+
+function getIndividualRecommendation(score) {
+  if (score <= 25) return { type: 'individual', key: 'analytics', name: 'Analytics Foundations for Everyone', reason: 'Start with the language of data, the questions analytics answers and simple business examples.' };
+  if (score <= 50) return { type: 'individual', key: 'role', name: 'Data Confidence for Your Role', reason: 'Apply data thinking to the job you already do and become more confident with reports and KPIs.' };
+  if (score <= 75) return { type: 'individual', key: 'visualisation', name: 'Visualisation Fundamentals', reason: 'Strengthen the way you read, choose and explain charts and business information.' };
+  return { type: 'individual', key: 'story', name: 'Data Storytelling Foundations', reason: 'Build on your judgement by shaping clear messages, context and recommendations.' };
+}
+
+function confidenceResult(role, score) {
+  const level = confidenceLevels.find(item => score <= item.max) || confidenceLevels.at(-1);
+  const recommendation = role === 'individual' ? getIndividualRecommendation(score) : (confidenceRecommendations[role] || confidenceRecommendations.business);
+  return { role, score, level, recommendation };
+}
+
+function saveConfidencePassport(result) {
+  try { localStorage.setItem('notabotConfidencePassport', JSON.stringify(result)); } catch { /* storage is optional */ }
+}
+
+function loadConfidencePassport() {
+  try {
+    const saved = localStorage.getItem('notabotConfidencePassport');
+    return saved ? JSON.parse(saved) : null;
+  } catch { return null; }
+}
+
+function renderConfidencePassport(result, restored = false) {
+  if (!result) return;
+  const score = Number(result.score) || 0;
+  const level = result.level || confidenceLevels.find(item => score <= item.max) || confidenceLevels[0];
+  const recommendation = result.recommendation || (result.role === 'individual' ? getIndividualRecommendation(score) : confidenceRecommendations[result.role]) || confidenceRecommendations.business;
+  const ring = document.querySelector('#passport-score-ring');
+  const status = document.querySelector('#passport-status');
+  const resultBox = document.querySelector('#passport-result');
+  if (ring) ring.style.setProperty('--score', String(score));
+  const scoreElement = document.querySelector('#passport-score');
+  if (scoreElement) scoreElement.textContent = String(score);
+  const kicker = document.querySelector('#passport-badge-kicker');
+  const title = document.querySelector('#passport-level');
+  const message = document.querySelector('#passport-message');
+  const programme = document.querySelector('#passport-programme');
+  const reason = document.querySelector('#passport-reason');
+  if (kicker) kicker.textContent = level.kicker;
+  if (title) title.textContent = level.name;
+  if (message) message.textContent = level.message;
+  if (programme) programme.textContent = recommendation.name;
+  if (reason) reason.textContent = recommendation.reason;
+  if (status) { status.textContent = restored ? 'Saved passport' : 'Path unlocked'; status.classList.add('unlocked'); }
+  document.querySelector('[data-passport-achievement="role"]')?.classList.add('unlocked');
+  document.querySelector('[data-passport-achievement="judgement"]')?.classList.add('unlocked');
+  document.querySelector('[data-passport-achievement="path"]')?.classList.add('unlocked');
+  if (resultBox) resultBox.hidden = false;
+  result.recommendation = recommendation;
+  result.level = level;
+  document.querySelector('#use-passport-path')?.setAttribute('data-result-type', recommendation.type);
+  document.querySelector('#use-passport-path')?.setAttribute('data-result-key', recommendation.key);
+}
+
+function initConfidenceGame() {
+  const game = document.querySelector('#confidence-game');
+  if (!game) return;
+  const steps = [...game.querySelectorAll('[data-game-step]')];
+  const next = document.querySelector('#game-next');
+  const back = document.querySelector('#game-back');
+  const progressLabel = document.querySelector('#game-progress-label');
+  const progressFill = document.querySelector('#game-progress-fill');
+  let current = 0;
+
+  const selectedInStep = step => step.querySelector('input:checked');
+  const updateGameView = () => {
+    steps.forEach((step, index) => step.classList.toggle('active', index === current));
+    if (progressLabel) progressLabel.textContent = `Step ${current + 1} of ${steps.length}`;
+    if (progressFill) progressFill.style.width = `${((current + 1) / steps.length) * 100}%`;
+    if (back) back.disabled = current === 0;
+    if (next) next.innerHTML = current === steps.length - 1 ? 'Unlock my result <span aria-hidden="true">✦</span>' : 'Continue <span aria-hidden="true">→</span>';
+  };
+
+  game.addEventListener('change', event => {
+    if (event.target.name === 'gameRole') document.querySelector('[data-passport-achievement="role"]')?.classList.add('unlocked');
+    const answeredScenarios = ['gameQ1','gameQ2','gameQ3'].filter(name => game.querySelector(`input[name="${name}"]:checked`)).length;
+    if (answeredScenarios >= 2) document.querySelector('[data-passport-achievement="judgement"]')?.classList.add('unlocked');
+  });
+
+  next?.addEventListener('click', () => {
+    if (!selectedInStep(steps[current])) {
+      showToast('Choose the answer that feels closest to you.');
+      steps[current].querySelector('input')?.focus();
+      return;
+    }
+    if (current < steps.length - 1) {
+      current += 1;
+      updateGameView();
+      steps[current].querySelector('input')?.focus();
+      return;
+    }
+    const role = game.querySelector('input[name="gameRole"]:checked')?.value || 'business';
+    const rawScore = ['gameQ1','gameQ2','gameQ3'].reduce((total, name) => total + Number(game.querySelector(`input[name="${name}"]:checked`)?.value || 0), 0);
+    const score = Math.round((rawScore / 9) * 100);
+    const result = confidenceResult(role, score);
+    saveConfidencePassport(result);
+    renderConfidencePassport(result);
+    if (next) { next.disabled = true; next.innerHTML = 'Result unlocked <span aria-hidden="true">✓</span>'; }
+    triggerConfetti(document.querySelector('.confidence-passport')?.getBoundingClientRect().left || window.innerWidth / 2, 42);
+    showToast(`${result.level.name} badge unlocked.`);
+    document.querySelector('.confidence-passport')?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
+  });
+
+  back?.addEventListener('click', () => {
+    if (current > 0) { current -= 1; updateGameView(); }
+  });
+
+  document.querySelector('#restart-confidence-game')?.addEventListener('click', () => {
+    game.reset();
+    current = 0;
+    document.querySelector('#passport-result').hidden = true;
+    document.querySelector('#passport-score-ring')?.style.setProperty('--score', '0');
+    document.querySelector('#passport-score').textContent = '—';
+    document.querySelector('#passport-badge-kicker').textContent = 'Your badge is waiting';
+    document.querySelector('#passport-level').textContent = 'Complete the challenge';
+    document.querySelector('#passport-message').textContent = 'Answer four quick steps to unlock a positive starting level and a learning path matched to your role.';
+    const status = document.querySelector('#passport-status');
+    if (status) { status.textContent = 'Not started'; status.classList.remove('unlocked'); }
+    document.querySelectorAll('[data-passport-achievement]').forEach(item => item.classList.remove('unlocked'));
+    if (next) next.disabled = false;
+    try { localStorage.removeItem('notabotConfidencePassport'); } catch { /* optional */ }
+    updateGameView();
+  });
+
+  document.querySelector('#use-passport-path')?.addEventListener('click', event => {
+    const type = event.currentTarget.dataset.resultType;
+    const key = event.currentTarget.dataset.resultKey;
+    document.querySelectorAll('.path-recommended').forEach(item => item.classList.remove('path-recommended'));
+    if (type === 'programme') {
+      selectProgramme(key);
+      const target = document.querySelector(`[data-programme-card="${key}"]`);
+      target?.classList.add('path-recommended');
+    } else {
+      const target = document.querySelector(`[data-course-card="${key}"]`);
+      target?.classList.add('path-recommended');
+      target?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center', inline: 'center' });
+    }
+  });
+
+  document.querySelector('#copy-passport-result')?.addEventListener('click', async () => {
+    const saved = loadConfidencePassport();
+    if (!saved) return;
+    const recommendation = saved.recommendation || confidenceRecommendations[saved.role] || getIndividualRecommendation(saved.score);
+    const text = `My Notabot Data Confidence result: ${saved.level?.name || 'Confidence path'} — ${saved.score}/100. Recommended next step: ${recommendation.name}. ${recommendation.reason}`;
+    try { await navigator.clipboard.writeText(text); showToast('Confidence result copied.'); }
+    catch { showToast('Copy unavailable in this browser.'); }
+  });
+
+  const saved = loadConfidencePassport();
+  if (saved) renderConfidencePassport(saved, true);
+  updateGameView();
+}
+
+function updatePlannerQuest() {
+  const total = 5;
+  const count = plannerTouchedSteps.size;
+  const percentage = (count / total) * 100;
+  const label = document.querySelector('#planner-progress-label');
+  const fill = document.querySelector('#planner-progress-fill');
+  const pill = document.querySelector('#plan-unlock-pill');
+  if (label) label.textContent = count === total ? 'Learning plan unlocked' : `${count} of ${total} choices confirmed`;
+  if (fill) fill.style.width = `${percentage}%`;
+  document.querySelectorAll('[data-plan-dot]').forEach(dot => dot.classList.toggle('complete', Number(dot.dataset.planDot) <= count));
+  if (pill) {
+    pill.textContent = count === total ? 'Plan unlocked' : 'Live estimate';
+    pill.classList.toggle('unlocked', count === total);
+  }
+  try { localStorage.setItem('notabotPlannerQuest', JSON.stringify([...plannerTouchedSteps])); } catch { /* optional */ }
+  if (count === total && !plannerQuestCelebrated) {
+    plannerQuestCelebrated = true;
+    const rect = document.querySelector('.planner-form')?.getBoundingClientRect();
+    triggerConfetti(rect ? rect.left + rect.width / 2 : window.innerWidth / 2, 30);
+    showToast('Learning plan unlocked.');
+  }
+}
+
+function markPlannerStep(step) {
+  const safe = Number(step);
+  if (!safe || safe < 1 || safe > 5) return;
+  plannerTouchedSteps.add(safe);
+  updatePlannerQuest();
+}
+
+function initPlannerQuest() {
+  if (!planner) return;
+  try {
+    const stored = JSON.parse(localStorage.getItem('notabotPlannerQuest') || '[]');
+    stored.forEach(mark => plannerTouchedSteps.add(Number(mark)));
+  } catch { /* optional */ }
+  const fieldsets = [...planner.querySelectorAll('fieldset')];
+  fieldsets.forEach((fieldset, index) => {
+    const step = index + 1;
+    fieldset.dataset.planStep = String(step);
+    fieldset.addEventListener('change', () => markPlannerStep(step));
+    fieldset.addEventListener('input', event => {
+      if (event.target.matches('input[type="range"],input[type="number"]')) markPlannerStep(step);
+    });
+  });
+  document.querySelector('[data-decrement]')?.addEventListener('click', () => markPlannerStep(2));
+  document.querySelector('[data-increment]')?.addEventListener('click', () => markPlannerStep(2));
+  document.querySelector('#request-plan')?.addEventListener('click', () => {
+    if (plannerTouchedSteps.size === 5) triggerConfetti(window.innerWidth * .72, 24);
+  });
+  updatePlannerQuest();
+}
+
 function init() {
   requestAnimationFrame(() => document.body.classList.add('loaded'));
   document.querySelectorAll('[data-year]').forEach(element => { element.textContent = String(new Date().getFullYear()); });
@@ -769,10 +1018,12 @@ function init() {
   initCursor();
   initMethodRail();
   initDataCore();
+  initConfidenceGame();
   initPlanner();
+  initPlannerQuest();
   initContactForm();
   const mobileCta = document.querySelector('[data-mobile-cta]');
-  const ctaBlockingSections = [...document.querySelectorAll('#top,#programmes,#tools,#individuals,#planner,#impact,#contact')];
+  const ctaBlockingSections = [...document.querySelectorAll('#top,#confidence-challenge,#programmes,#tools,#individuals,#planner,#impact,#contact')];
   if (mobileCta && 'IntersectionObserver' in window) {
     const visibleBlockingSections = new Set();
     const mobileObserver = new IntersectionObserver(entries => {

@@ -1100,3 +1100,105 @@ html,body{max-width:100%;overflow-x:hidden}
   .impact-section .section-heading h2{max-width:12ch}
   .impact-section .section-heading>p{font-size:.86rem;line-height:1.55}
 }
+
+/* ========================================================================== 
+   V14 — PREMIUM GAMIFICATION: CONFIDENCE PASSPORT, ACHIEVEMENTS & PLAN QUEST
+   ========================================================================== */
+
+.hero-action-note{display:flex;align-items:center;gap:8px;margin:14px 0 0;color:#7990a5;font-size:.73rem;font-weight:650}
+.hero-action-note span{color:var(--yellow)}
+
+/* Confidence challenge */
+.confidence-game-section{position:relative;overflow:hidden;background:linear-gradient(180deg,#06101b,#081725 58%,#06101b)}
+.confidence-game-section::before{content:"";position:absolute;width:760px;height:760px;left:-340px;top:10%;border-radius:50%;background:radial-gradient(circle,rgba(111,130,255,.14),transparent 68%);pointer-events:none}
+.confidence-game-section::after{content:"";position:absolute;width:540px;height:540px;right:-220px;bottom:-180px;border-radius:50%;background:radial-gradient(circle,rgba(121,226,220,.1),transparent 68%);pointer-events:none}
+.confidence-game-layout{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(340px,.68fr);gap:22px;align-items:stretch}
+.confidence-game-card,.confidence-passport{border:1px solid var(--line-strong);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.052),rgba(255,255,255,.014));box-shadow:var(--shadow-soft);backdrop-filter:blur(18px)}
+.confidence-game-card{padding:28px;min-height:620px;display:flex;flex-direction:column}
+.game-progress-head{display:grid;grid-template-columns:auto minmax(180px,.8fr);align-items:center;gap:22px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.game-progress-head>div:first-child{display:grid;gap:3px}.game-progress-head span{font-size:.63rem;text-transform:uppercase;letter-spacing:.12em;color:#71879a;font-weight:850}.game-progress-head strong{font:650 .9rem var(--font-display)}
+.game-progress-track{height:7px;border-radius:999px;background:#0a1523;overflow:hidden;border:1px solid rgba(255,255,255,.04)}
+.game-progress-track i{display:block;width:25%;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--yellow));transition:width .4s var(--ease);box-shadow:0 0 22px rgba(121,226,220,.32)}
+#confidence-game{display:flex;flex:1;flex-direction:column;min-height:0}
+.game-step{display:none;border:0;padding:30px 0 0;margin:0;animation:gameStepIn .38s var(--ease)}
+.game-step.active{display:block}
+.game-step legend{padding:0;max-width:760px;font:680 clamp(1.6rem,2.6vw,2.65rem)/1.08 var(--font-display);letter-spacing:-.045em}
+.game-step-help{margin:10px 0 0;color:#8297aa;font-size:.82rem}
+.game-option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
+.game-option-grid label{position:relative;cursor:pointer}
+.game-option-grid input{position:absolute;opacity:0;pointer-events:none}
+.game-option-grid label>span{min-height:96px;display:grid;align-content:center;gap:6px;padding:15px 16px;border:1px solid var(--line);border-radius:16px;background:#071321;transition:transform .2s var(--ease),border-color .2s ease,background .2s ease,box-shadow .2s ease}
+.game-option-grid b{font:650 .82rem var(--font-display);color:#e4ebf1}.game-option-grid small{color:#7890a4;font-size:.69rem;line-height:1.42}
+.game-option-grid label:hover>span{transform:translateY(-2px);border-color:rgba(121,226,220,.3);background:#0a1929}
+.game-option-grid input:checked+span{border-color:rgba(121,226,220,.62);background:linear-gradient(145deg,rgba(121,226,220,.13),rgba(111,130,255,.11));box-shadow:inset 0 0 0 1px rgba(121,226,220,.08),0 12px 34px rgba(0,0,0,.16)}
+.game-option-grid input:focus-visible+span{outline:3px solid rgba(135,207,255,.68);outline-offset:3px}
+.game-role-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.game-role-grid label:last-child{grid-column:1/-1}
+.game-controls{display:flex;justify-content:space-between;gap:12px;margin-top:auto;padding-top:26px}
+.game-controls .button{min-width:132px}
+.game-controls .button[disabled]{opacity:.35;cursor:not-allowed;transform:none}
+
+.confidence-passport{position:relative;padding:26px;overflow:hidden;display:flex;flex-direction:column;min-height:620px;background:radial-gradient(circle at 60% 22%,rgba(111,130,255,.16),transparent 34%),linear-gradient(145deg,rgba(11,29,48,.92),rgba(5,13,24,.94))}
+.confidence-passport::after{content:"";position:absolute;inset:auto -80px -110px auto;width:320px;height:320px;border:1px solid rgba(121,226,220,.1);border-radius:50%;box-shadow:inset 0 0 60px rgba(111,130,255,.08)}
+.confidence-passport>*{position:relative;z-index:2}
+.passport-top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#8196aa;font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;font-weight:850}
+.passport-top b{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.045);color:#a4b5c3;font-size:.56rem}
+.passport-top b.unlocked{background:rgba(121,226,220,.1);color:var(--cyan)}
+.passport-score{--score:0;width:184px;height:184px;margin:34px auto 26px;padding:12px;border-radius:50%;background:conic-gradient(var(--cyan) calc(var(--score)*1%),rgba(255,255,255,.07) 0);box-shadow:0 0 60px rgba(111,130,255,.14);transition:background .6s var(--ease)}
+.passport-score>div{height:100%;display:grid;place-items:center;align-content:center;border-radius:50%;background:#071321;border:1px solid var(--line);text-align:center}
+.passport-score strong{font:720 3.3rem/.9 var(--font-display);letter-spacing:-.08em}.passport-score small{margin-top:8px;color:#71889b;font-size:.61rem;text-transform:uppercase;letter-spacing:.11em;font-weight:800}
+.passport-copy{text-align:center;display:grid;gap:8px}.passport-copy>span{color:var(--yellow);font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;font-weight:850}.passport-copy h3{margin:0;font-size:1.65rem;letter-spacing:-.04em}.passport-copy p{margin:0;color:#8297aa;font-size:.76rem;line-height:1.55}
+.passport-achievements{display:grid;gap:8px;margin-top:24px}
+.passport-achievements>div{display:grid;grid-template-columns:34px 1fr;align-items:center;gap:11px;padding:10px 11px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.02);opacity:.48;transition:.25s ease}
+.passport-achievements>div.unlocked{opacity:1;border-color:rgba(121,226,220,.28);background:rgba(121,226,220,.05)}
+.passport-achievements i{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#0b1a2a;color:#7890a4;font:750 .62rem var(--font-display);font-style:normal}
+.passport-achievements>div.unlocked i{background:linear-gradient(145deg,rgba(121,226,220,.18),rgba(111,130,255,.18));color:var(--cyan)}
+.passport-achievements span{display:grid}.passport-achievements strong{font:620 .72rem var(--font-display)}.passport-achievements small{color:#6f8598;font-size:.62rem}
+.passport-result{display:grid;gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.passport-recommendation{display:grid;gap:4px;padding:13px;border-radius:14px;background:rgba(121,226,220,.055);border:1px solid rgba(121,226,220,.16)}
+.passport-recommendation span{font-size:.58rem;text-transform:uppercase;letter-spacing:.11em;color:#72879a;font-weight:850}.passport-recommendation strong{font:650 .87rem var(--font-display)}.passport-recommendation small{color:#8196a8;font-size:.67rem;line-height:1.4}
+.passport-actions{display:grid;grid-template-columns:1.2fr .8fr;gap:8px}.passport-actions .button{min-height:46px;padding-inline:13px;font-size:.73rem}.passport-result>.text-button{text-align:center}
+
+/* Completion badges inside programmes */
+.badge-unlock{display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px;align-items:center;margin-top:18px;padding:11px 12px;border:1px solid rgba(244,221,105,.16);border-radius:14px;background:linear-gradient(120deg,rgba(244,221,105,.055),rgba(121,226,220,.04))}
+.badge-unlock>span{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:rgba(244,221,105,.1);color:var(--yellow);border:1px solid rgba(244,221,105,.2)}
+.badge-unlock>div{display:grid;gap:2px}.badge-unlock small{color:#71869a;font-size:.56rem;text-transform:uppercase;letter-spacing:.11em;font-weight:850}.badge-unlock strong{font:630 .73rem var(--font-display);color:#dce5eb}
+.badge-unlock.compact{margin-top:14px;padding:9px 10px}.badge-unlock.compact>span{width:34px;height:34px}.badge-unlock.compact strong{font-size:.69rem}
+
+/* Planner quest */
+.planner-game-progress{display:grid;gap:12px;padding:16px;border:1px solid rgba(111,130,255,.25);border-radius:18px;background:linear-gradient(130deg,rgba(111,130,255,.09),rgba(121,226,220,.045))}
+.planner-game-copy{display:flex;justify-content:space-between;align-items:center;gap:12px}.planner-game-copy span{font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;color:#71879b;font-weight:850}.planner-game-copy strong{font:630 .75rem var(--font-display)}
+.planner-game-track{height:6px;border-radius:999px;background:#07111e;overflow:hidden}.planner-game-track i{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--yellow));transition:width .4s var(--ease)}
+.planner-game-dots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.planner-game-dots span{display:grid;place-items:center;height:28px;border:1px solid var(--line);border-radius:9px;background:rgba(255,255,255,.025);color:#61788c;font:700 .62rem var(--font-display);transition:.2s ease}.planner-game-dots span.complete{border-color:rgba(121,226,220,.35);background:rgba(121,226,220,.09);color:var(--cyan)}
+#plan-unlock-pill.unlocked{border-color:rgba(121,226,220,.36);background:rgba(121,226,220,.08);color:var(--cyan)}
+
+/* Selected recommendation highlight */
+.individual-plan.path-recommended,.programme-plan.path-recommended,.tool-training-card.path-recommended{box-shadow:inset 0 0 0 2px rgba(121,226,220,.55),0 24px 70px rgba(20,90,100,.2);animation:pathGlow 1.7s ease-in-out 2}
+
+/* Premium confetti — lightweight, short-lived and disabled for reduced motion. */
+.confetti-piece{position:fixed;z-index:2000;top:-20px;width:8px;height:14px;border-radius:2px;pointer-events:none;animation:confettiFall var(--duration,1.5s) cubic-bezier(.18,.72,.22,1) forwards;transform:translate3d(0,0,0) rotate(0deg);background:var(--piece-color,var(--cyan))}
+
+@keyframes gameStepIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+@keyframes pathGlow{0%,100%{filter:none}50%{filter:brightness(1.15)}}
+@keyframes confettiFall{to{transform:translate3d(var(--drift,0),105vh,0) rotate(var(--spin,720deg));opacity:.1}}
+
+/* Alignment after adding badge rows */
+.programme-plan{min-height:724px}
+.tool-training-card{min-height:650px}
+@media (min-width:1101px){
+  .individual-plan{grid-template-rows:32px 104px 116px 92px 58px minmax(114px,1fr) 66px auto;min-height:710px}
+  .individual-plan .badge-unlock{align-self:end;margin-top:0}
+}
+
+#confidence-challenge{scroll-margin-top:92px}
+
+@media (max-width:1050px){
+  .confidence-game-layout{grid-template-columns:1fr}.confidence-passport{min-height:auto}.passport-achievements{grid-template-columns:repeat(3,1fr)}.passport-achievements>div{grid-template-columns:1fr;text-align:center}.passport-achievements i{margin:auto}
+}
+@media (max-width:760px){
+  .confidence-game-card,.confidence-passport{border-radius:22px;padding:20px}.confidence-game-card{min-height:610px}.game-progress-head{grid-template-columns:1fr;gap:10px}.game-option-grid,.game-role-grid{grid-template-columns:1fr}.game-role-grid label:last-child{grid-column:auto}.game-option-grid label>span{min-height:82px}.game-step legend{font-size:1.7rem}.game-controls{position:sticky;bottom:0;padding:16px 0 0;background:linear-gradient(180deg,transparent,#081725 30%)}.game-controls .button{min-width:0;flex:1}.passport-achievements{grid-template-columns:1fr}.passport-achievements>div{grid-template-columns:34px 1fr;text-align:left}.passport-achievements i{margin:0}.passport-actions{grid-template-columns:1fr}.programme-plan{min-height:690px}.tool-training-card{min-height:610px}.individual-plan{min-height:620px}
+}
+@media (max-width:480px){
+  .confidence-game-section .programme-heading-row h2{font-size:2.15rem}.confidence-game-card{padding:17px}.confidence-passport{padding:19px}.passport-score{width:164px;height:164px}.passport-score strong{font-size:2.9rem}.game-option-grid label>span{padding:13px;min-height:78px}.planner-game-copy{display:grid}.badge-unlock{grid-template-columns:34px 1fr}.badge-unlock>span{width:34px;height:34px}
+}
+@media (prefers-reduced-motion:reduce){.confetti-piece{display:none}.individual-plan.path-recommended,.programme-plan.path-recommended,.tool-training-card.path-recommended{animation:none}}

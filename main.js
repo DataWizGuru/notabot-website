@@ -11,6 +11,7 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 const managerEmailDialog = document.querySelector('#manager-email-dialog');
 const managerEmailSubject = document.querySelector('#manager-email-subject');
 const managerEmailBody = document.querySelector('#manager-email-body');
+const MIN_CORPORATE_TEAM_SIZE = 4;
 
 const programmes = {
   executive: {
@@ -18,7 +19,6 @@ const programmes = {
     outcome: 'Understand the numbers in the room, challenge assumptions and know what to ask data and AI teams.',
     capacity: 12,
     protectCapacity: 8,
-    smallPrice: 10000,
     basePrice: 10000,
     additionalCohort: 8000,
     learningDays: { protect: '2 focused session days', balanced: '1 focused session day', fast: '1 focused session day' },
@@ -33,7 +33,6 @@ const programmes = {
     outcome: 'Understand data, reports and analytics in the context of everyday business work.',
     capacity: 15,
     protectCapacity: 8,
-    smallPrice: 15000,
     basePrice: 18500,
     additionalCohort: 12500,
     learningDays: { protect: '4 focused session days', balanced: '3 focused session days', fast: '2 half-days' },
@@ -48,7 +47,6 @@ const programmes = {
     outcome: 'Turn KPIs, evidence and business questions into clearer management decisions.',
     capacity: 12,
     protectCapacity: 6,
-    smallPrice: 26000,
     basePrice: 29500,
     additionalCohort: 19500,
     learningDays: { protect: '4 focused session days', balanced: '3 focused session days', fast: '2 half-days' },
@@ -63,7 +61,6 @@ const programmes = {
     outcome: 'Build reports and stories that people understand, trust and act on.',
     capacity: 10,
     protectCapacity: 6,
-    smallPrice: 38000,
     basePrice: 42500,
     additionalCohort: 27500,
     learningDays: { protect: '5 focused session days', balanced: '4 focused session days', fast: '3 focused session days' },
@@ -78,7 +75,6 @@ const programmes = {
     outcome: 'Build practical Power BI reporting skills around real business questions and useful dashboards.',
     capacity: 10,
     protectCapacity: 6,
-    smallPrice: 28500,
     basePrice: 32500,
     additionalCohort: 22000,
     learningDays: { protect: '5 focused session days', balanced: '4 focused session days', fast: '3 focused session days' },
@@ -93,7 +89,6 @@ const programmes = {
     outcome: 'Understand how Fabric supports modern data work and build practical confidence using its core experiences.',
     capacity: 10,
     protectCapacity: 6,
-    smallPrice: 28500,
     basePrice: 32500,
     additionalCohort: 22000,
     learningDays: { protect: '5 focused session days', balanced: '4 focused session days', fast: '3 focused session days' },
@@ -118,6 +113,18 @@ const supportOptions = {
   continuity: { price: 15000, label: '30-day team support' }
 };
 
+const impactOptions = {
+  later: { label: 'Choose during the scope call', shortLabel: 'Choose later' },
+  youth: { label: 'Youth education', shortLabel: 'Youth education' },
+  digital: { label: 'Digital inclusion', shortLabel: 'Digital inclusion' },
+  women: { label: 'Women in technology', shortLabel: 'Women in technology' },
+  employment: { label: 'Employment readiness', shortLabel: 'Employment readiness' },
+  nominate: { label: 'A verified organisation nominated by the client', shortLabel: 'Nominate a verified organisation' }
+};
+
+const IMPACT_RATE = 0.02;
+const IMPACT_CAP = 5000;
+
 const money = {
   format(value) {
     return `R${Math.round(value).toLocaleString('en-US')}`;
@@ -130,8 +137,8 @@ function selectedValue(name) {
 
 function clampParticipants(value) {
   const parsed = Number.parseInt(value, 10);
-  if (Number.isNaN(parsed)) return 4;
-  return Math.min(40, Math.max(1, parsed));
+  if (Number.isNaN(parsed)) return 10;
+  return Math.min(40, Math.max(MIN_CORPORATE_TEAM_SIZE, parsed));
 }
 
 function splitCohorts(total, count) {
@@ -140,7 +147,7 @@ function splitCohorts(total, count) {
   return Array.from({ length: count }, (_, index) => base + (index < remainder ? 1 : 0));
 }
 
-function calculateProgrammeEstimate(programmeKey, participants, bau = 'balanced', support = 'core') {
+function calculateProgrammeEstimate(programmeKey, participants, bau = 'balanced', support = 'core', impact = 'later') {
   const programme = programmes[programmeKey];
   const safeParticipants = clampParticipants(participants);
   const cohortCapacity = bau === 'protect' ? programme.protectCapacity : programme.capacity;
@@ -148,10 +155,12 @@ function calculateProgrammeEstimate(programmeKey, participants, bau = 'balanced'
   const cohortSizes = splitCohorts(safeParticipants, cohorts);
   const maxAway = Math.max(...cohortSizes);
 
-  let price = safeParticipants <= 5
-    ? programme.smallPrice
-    : programme.basePrice + Math.max(0, cohorts - 1) * programme.additionalCohort;
+  // Corporate programmes are priced per cohort, not per person.
+  // The advertised base price is always the minimum programme fee;
+  // additional cohort fees apply only when the chosen structure requires more groups.
+  let price = programme.basePrice + Math.max(0, cohorts - 1) * programme.additionalCohort;
   price += supportOptions[support]?.price || 0;
+  const impactAmount = Math.min(IMPACT_CAP, Math.round(price * IMPACT_RATE));
 
   return {
     programmeKey,
@@ -159,6 +168,9 @@ function calculateProgrammeEstimate(programmeKey, participants, bau = 'balanced'
     bau,
     participants: safeParticipants,
     support,
+    impact,
+    impactAmount,
+    impactLabel: impactOptions[impact]?.label || impactOptions.later.label,
     cohorts,
     cohortSizes,
     maxAway,
@@ -174,7 +186,8 @@ function getPlan() {
   const bau = selectedValue('bau') || 'protect';
   const participants = clampParticipants(participantNumber?.value || 10);
   const support = selectedValue('support') || 'core';
-  return calculateProgrammeEstimate(programmeKey, participants, bau, support);
+  const impact = selectedValue('impact') || 'later';
+  return calculateProgrammeEstimate(programmeKey, participants, bau, support, impact);
 }
 
 function cohortDescription(plan) {
@@ -194,7 +207,8 @@ function planSummary(plan) {
     `Suggested rhythm: ${plan.calendarRhythm}`, 
     `Estimated investment: ${money.format(plan.price)}`,
     `Effective investment: ${money.format(plan.perPerson)} per person`,
-    `Support: ${supportOptions[plan.support].label}`
+    `Support: ${supportOptions[plan.support].label}`,
+    `Notabot impact contribution: approximately ${money.format(plan.impactAmount)} to ${plan.impactLabel}`
   ].join(' | ');
 }
 
@@ -220,9 +234,11 @@ function managerEmailContent(plan) {
     `• ${plan.learningDays}; ${rhythm}.`,
     `• Support included: ${support}.`,
     '',
-    `The estimated investment is ${money.format(plan.price)} in total, equivalent to approximately ${money.format(plan.perPerson)} per participant. Final pricing would be confirmed after a short scope call.`,
+    `The estimated programme fee is ${money.format(plan.price)} in total. This is priced per cohort rather than multiplied per person; at the selected team size it works out to approximately ${money.format(plan.perPerson)} per participant. Final pricing would be confirmed after a short scope call.`,
     '',
-    'May I arrange a short conversation with Notabot to validate the fit, delivery dates and final scope before we make a commitment?',
+    `The programme also includes Notabot’s 2% Impact Commitment. Based on this estimate, Notabot would fund an approximate ${money.format(plan.impactAmount)} contribution to ${plan.impactLabel.toLowerCase()}, provide transparent proof of payment and issue an Impact Certificate. This is included in the programme fee and is not an additional charge.`,
+    '',
+    'May I arrange a short conversation with Notabot to validate the fit, delivery dates, impact preference and final scope before we make a commitment?',
     '',
     'Regards,',
     '[Your name]'
@@ -249,7 +265,7 @@ function updatePricingCards() {
   const bau = pricingBauToggle?.checked ? 'protect' : 'balanced';
 
   Object.keys(programmes).forEach(programmeKey => {
-    const estimate = calculateProgrammeEstimate(programmeKey, participants, bau, 'core');
+    const estimate = calculateProgrammeEstimate(programmeKey, participants, bau, 'core', 'later');
     const priceElement = document.querySelector(`[data-programme-price="${programmeKey}"]`);
     const personElement = document.querySelector(`[data-programme-per-person="${programmeKey}"]`);
     const cohortsElement = document.querySelector(`[data-programme-cohorts="${programmeKey}"]`);
@@ -275,10 +291,26 @@ function updatePlan() {
   const daysNote = document.querySelector('#result-days-note');
   if (daysNote) daysNote.textContent = `${plan.calendarRhythm}. Each learning day is a focused session, not a full day away from BAU.`;
   document.querySelector('#result-price').textContent = money.format(plan.price);
-  document.querySelector('#result-per-person').textContent = `${money.format(plan.perPerson)} per person`;
+  document.querySelector('#result-per-person').textContent = `${money.format(plan.perPerson)} per participant`;
+  const priceNote = document.querySelector('#result-price-note');
+  if (priceNote) priceNote.textContent = plan.cohorts === 1
+    ? `One cohort programme fee. The per-participant figure is shown only to help compare value.`
+    : `${plan.cohorts} cohorts are required for the selected BAU structure. The per-participant figure is shown only to help compare value.`;
+
+  const impactAmount = document.querySelector('#result-impact');
+  const impactCause = document.querySelector('#result-impact-cause');
+  if (impactAmount) impactAmount.textContent = money.format(plan.impactAmount);
+  if (impactCause) impactCause.textContent = plan.impactLabel;
+
+  const impactExampleAmount = document.querySelector('#impact-example-amount');
+  const impactExampleProgramme = document.querySelector('#impact-example-programme');
+  const impactExampleCause = document.querySelector('#impact-example-cause');
+  if (impactExampleAmount) impactExampleAmount.textContent = money.format(plan.impactAmount);
+  if (impactExampleProgramme) impactExampleProgramme.textContent = plan.programme.name;
+  if (impactExampleCause) impactExampleCause.textContent = impactOptions[plan.impact]?.shortLabel || impactOptions.later.shortLabel;
 
   const includes = document.querySelector('#result-includes');
-  const items = ['Role-based live facilitation', 'Applied business exercises', 'Participant toolkit and follow-up support'];
+  const items = ['Role-based live facilitation', 'Applied business exercises', 'Participant toolkit and follow-up support', '2% Notabot-funded impact contribution'];
   if (plan.support === 'readout') items.push('Leadership summary');
   if (plan.support === 'continuity') items.push('30-day team support');
   includes.innerHTML = items.map(item => `<li>${item}</li>`).join('');
@@ -286,6 +318,9 @@ function updatePlan() {
   const contactNeed = document.querySelector('#contact-need');
   const matchingOption = [...contactNeed.options].find(option => option.textContent === plan.programme.contactLabel);
   if (matchingOption) contactNeed.value = matchingOption.value;
+
+  const impactSelect = document.querySelector('#contact-impact');
+  if (impactSelect) impactSelect.value = plan.impact;
 
   const teamSize = document.querySelector('input[name="teamSize"]');
   if (teamSize) teamSize.value = String(plan.participants);
@@ -710,6 +745,7 @@ function initContactForm() {
       `Audience: ${data.get('audience')}`,
       `Team size: ${data.get('teamSize')}`,
       `Capability need: ${data.get('need')}`,
+      `Preferred impact cause: ${data.get('impactCause') || 'Choose during the scope call'}`,
       '',
       'What needs to improve:',
       `${data.get('message') || 'Not provided'}`,
@@ -736,7 +772,7 @@ function init() {
   initPlanner();
   initContactForm();
   const mobileCta = document.querySelector('[data-mobile-cta]');
-  const ctaBlockingSections = [...document.querySelectorAll('#top,#programmes,#tools,#individuals,#planner,#contact')];
+  const ctaBlockingSections = [...document.querySelectorAll('#top,#programmes,#tools,#individuals,#planner,#impact,#contact')];
   if (mobileCta && 'IntersectionObserver' in window) {
     const visibleBlockingSections = new Set();
     const mobileObserver = new IntersectionObserver(entries => {

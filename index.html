@@ -1,631 +1,172 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#050b14">
-  <meta name="description" content="Notabot Studio builds data-confident, AI-ready teams through immersive, role-based programmes, a personalised confidence challenge and practical learning designed around real work and BAU.">
-  <meta property="og:title" content="Notabot Studio | Human-centred data capability">
-  <meta property="og:description" content="Role-based data, dashboard, Power BI and AI-readiness programmes that keep the business moving.">
-  <meta property="og:type" content="website">
-  <title>Notabot Studio | Build data confidence. Keep BAU moving.</title>
-  <link rel="icon" href="assets/logo/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="cursor-dot" data-cursor-dot aria-hidden="true"></div>
-  <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
-  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
-  <div class="grain" aria-hidden="true"></div>
+<!DOCTYPE html>
 
-  <header class="site-header" data-header>
-    <div class="shell nav-wrap">
-      <a class="brand magnetic" href="#top" aria-label="Notabot Studio home">
-        <img src="assets/logo/notabot-wordmark-nav.png" alt="Notabot Studio">
-      </a>
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#confidence-challenge">Find my path</a>
-        <a href="#programmes">Learn by role</a>
-        <a href="#individuals">For individuals</a>
-        <a href="#tools">Tool training</a>
-        <a href="#planner">Plan & pricing</a>
-      </nav>
-      <a class="button button-primary nav-cta magnetic" href="#planner">Build my learning plan</a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
-        <span></span><span></span><span></span><span class="sr-only">Open menu</span>
-      </button>
-    </div>
-    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" data-mobile-menu>
-      <a href="#confidence-challenge">Find my learning path</a>
-      <a href="#programmes">Learn by role</a>
-      <a href="#individuals">For individuals</a>
-      <a href="#tools">Tool training</a>
-      <a href="#planner">Plan & pricing</a>
-      <a href="#method">How it works</a>
-      <a href="#impact">Giving back</a>
-      <a href="#vision">Our vision</a>
-      <a class="button button-primary" href="#planner">Build my learning plan</a>
-    </nav>
-  </header>
-
-  <main id="main">
-    <section class="hero" id="top" data-scene>
-      <canvas class="hero-canvas" id="data-core" aria-hidden="true"></canvas>
-      <div class="hero-radial hero-radial-a" aria-hidden="true"></div>
-      <div class="hero-radial hero-radial-b" aria-hidden="true"></div>
-      <div class="hero-gridlines" aria-hidden="true"></div>
-
-      <div class="shell hero-shell">
-        <div class="hero-copy" data-parallax="0.05">
-          <div class="eyebrow reveal"><span></span> Human-centred data capability</div>
-          <h1 class="kinetic-title" aria-label="Build data confidence. Keep BAU moving.">
-            <span class="title-line title-line-a">Build data</span>
-            <span class="title-line title-line-b">con<span class="confidence-f">f</span><span class="confidence-i">i</span>dence.</span>
-            <span class="title-line title-line-c">Keep BAU</span>
-            <span class="title-line title-line-d">moving.</span>
-          </h1>
-          <p class="hero-lead reveal">Role-based data, analytics, Power BI, Fabric and AI-readiness learning that builds confidence inside the work—without taking an entire team offline.</p>
-          <div class="hero-actions reveal">
-            <a class="button button-primary button-large magnetic" href="#confidence-challenge">Take the 2-minute challenge <span aria-hidden="true">↗</span></a>
-            <a class="button button-ghost button-large magnetic" href="#programmes">Browse programmes</a>
-          </div>
-          <p class="hero-action-note reveal"><span aria-hidden="true">✦</span> No sign-up needed. Leave with a personalised starting point.</p>
-        </div>
-
-        <div class="hero-orbit" aria-hidden="true" data-parallax="-0.03">
-          <div class="orbit-label orbit-label-a"><span>01</span> Question</div>
-          <div class="orbit-label orbit-label-b"><span>02</span> Interpret</div>
-          <div class="orbit-label orbit-label-c"><span>03</span> Decide</div>
-          <div class="orbit-label orbit-label-d"><span>04</span> Act</div>
-          <div class="core-copy">
-            <span>NOTABOT // LEARNING-IN-FLOW</span>
-            <strong>Human judgement<br>at the centre.</strong>
-          </div>
-        </div>
-
-        <div class="hero-footer reveal">
-          <div class="hero-proof"><span>01</span><strong>No full-team shutdown</strong></div>
-          <div class="hero-proof"><span>02</span><strong>Role-relevant learning</strong></div>
-          <div class="hero-proof"><span>03</span><strong>Real-work application</strong></div>
-          <div class="hero-proof"><span>04</span><strong>Follow-through built in</strong></div>
-        </div>
-      </div>
-      <a class="scroll-cue" href="#manifesto" aria-label="Scroll to continue"><span>Scroll</span><i></i></a>
-    </section>
-
-    <section class="ticker" aria-label="Capability areas">
-      <div class="ticker-track">
-        <span>DATA CONFIDENCE</span><i>✦</i><span>DECISION INTELLIGENCE</span><i>✦</i><span>DASHBOARD FLUENCY</span><i>✦</i><span>AI JUDGEMENT</span><i>✦</i><span>DATA FOR YOUR ROLE</span><i>✦</i>
-        <span>DATA CONFIDENCE</span><i>✦</i><span>DECISION INTELLIGENCE</span><i>✦</i><span>DASHBOARD FLUENCY</span><i>✦</i><span>AI JUDGEMENT</span><i>✦</i><span>DATA FOR YOUR ROLE</span><i>✦</i>
-      </div>
-    </section>
-
-    <section class="questions" id="manifesto" aria-labelledby="questions-heading">
-      <div class="questions-sticky">
-        <div class="shell questions-shell">
-          <div class="questions-meta">
-            <div class="questions-index">THE QUESTIONS PEOPLE ASK <span data-question-count>01 / 04</span></div>
-            <p>Big ideas, explained in plain business language.</p>
-          </div>
-
-          <div class="questions-stage">
-            <article class="question-panel active" data-question-panel>
-              <span>01 · DATA ANALYTICS</span>
-              <h2 id="questions-heading">What is <em>data analytics?</em></h2>
-              <p>Turning raw data into understanding, better decisions and clear action.</p>
-            </article>
-            <article class="question-panel" data-question-panel>
-              <span>02 · ARTIFICIAL INTELLIGENCE</span>
-              <h2>What is <em>AI?</em></h2>
-              <p>Technology that learns from patterns to predict, generate and assist—while people remain responsible for the judgement.</p>
-            </article>
-            <article class="question-panel" data-question-panel>
-              <span>03 · BUSINESS USERS</span>
-              <h2>Do I need to be <em>technical?</em></h2>
-              <p>No. You need the confidence to ask better questions, interpret evidence and explain what should happen next.</p>
-            </article>
-            <article class="question-panel" data-question-panel>
-              <span>04 · BUSINESS VALUE</span>
-              <h2>How does data help the <em>business?</em></h2>
-              <p>It helps teams see problems earlier, understand performance and make decisions with stronger evidence.</p>
-            </article>
-          </div>
-
-          <div class="question-nav" aria-label="Common questions">
-            <button type="button" class="active" data-question-jump="0"><span>01</span><strong>Analytics</strong></button>
-            <button type="button" data-question-jump="1"><span>02</span><strong>AI</strong></button>
-            <button type="button" data-question-jump="2"><span>03</span><strong>Technical?</strong></button>
-            <button type="button" data-question-jump="3"><span>04</span><strong>Business value</strong></button>
-          </div>
-
-          <p class="questions-note">Choose a question. Get a clear, plain-language answer.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section confidence-game-section" id="confidence-challenge" aria-labelledby="confidence-game-title">
-      <div class="shell">
-        <div class="programme-heading-row reveal">
-          <div><div class="eyebrow"><span></span> Your data confidence challenge</div><h2 id="confidence-game-title">Discover where to start—in about two minutes.</h2></div>
-          <p>Choose the answers that feel most like you. There are no trick questions and no technical test. You will unlock a confidence level, a completion badge and a recommended learning path.</p>
-        </div>
-
-        <div class="confidence-game-layout reveal">
-          <div class="confidence-game-card">
-            <div class="game-progress-head">
-              <div><span>Challenge progress</span><strong id="game-progress-label">Step 1 of 4</strong></div>
-              <div class="game-progress-track" aria-hidden="true"><i id="game-progress-fill"></i></div>
-            </div>
-
-            <form id="confidence-game" novalidate>
-              <fieldset class="game-step active" data-game-step="0">
-                <legend>Which description fits you best?</legend>
-                <p class="game-step-help">This helps us recommend the right programme—not judge your current knowledge.</p>
-                <div class="game-option-grid game-role-grid">
-                  <label><input type="radio" name="gameRole" value="executive"><span><b>Executive or senior leader</b><small>I need to understand the numbers and ask better questions.</small></span></label>
-                  <label><input type="radio" name="gameRole" value="business"><span><b>Business professional</b><small>I want to use data more confidently in my current role.</small></span></label>
-                  <label><input type="radio" name="gameRole" value="managers"><span><b>Manager or team leader</b><small>I use KPIs and evidence to guide people and performance.</small></span></label>
-                  <label><input type="radio" name="gameRole" value="storytelling"><span><b>Analyst or BI professional</b><small>I build reports or explain insights to others.</small></span></label>
-                  <label><input type="radio" name="gameRole" value="powerbi"><span><b>Power BI learner</b><small>I want practical reporting and dashboard skills.</small></span></label>
-                  <label><input type="radio" name="gameRole" value="fabric"><span><b>Microsoft Fabric learner</b><small>I want to understand the modern data platform.</small></span></label>
-                  <label><input type="radio" name="gameRole" value="individual"><span><b>Individual learner</b><small>I am starting for myself or exploring a future in data.</small></span></label>
-                </div>
-              </fieldset>
-
-              <fieldset class="game-step" data-game-step="1">
-                <legend>A key number suddenly drops. What would you do first?</legend>
-                <div class="game-option-grid">
-                  <label><input type="radio" name="gameQ1" value="0"><span><b>Wait for someone to explain it</b><small>I would not know where to begin.</small></span></label>
-                  <label><input type="radio" name="gameQ1" value="1"><span><b>Check whether the number is correct</b><small>I would confirm the report before discussing it.</small></span></label>
-                  <label><input type="radio" name="gameQ1" value="2"><span><b>Ask what changed and compared with what</b><small>I would look for context, target and time period.</small></span></label>
-                  <label><input type="radio" name="gameQ1" value="3"><span><b>Connect the change to causes and decisions</b><small>I would test the evidence and identify what action it affects.</small></span></label>
-                </div>
-              </fieldset>
-
-              <fieldset class="game-step" data-game-step="2">
-                <legend>AI gives you a confident answer. What happens next?</legend>
-                <div class="game-option-grid">
-                  <label><input type="radio" name="gameQ2" value="0"><span><b>Use it as written</b><small>It sounds convincing, so I would move ahead.</small></span></label>
-                  <label><input type="radio" name="gameQ2" value="1"><span><b>Ask another person if it looks right</b><small>I would rely on someone with more experience.</small></span></label>
-                  <label><input type="radio" name="gameQ2" value="2"><span><b>Verify the important facts</b><small>I would check sources, numbers and assumptions.</small></span></label>
-                  <label><input type="radio" name="gameQ2" value="3"><span><b>Check the evidence, risk and decision context</b><small>I would use AI as support while keeping human judgement responsible.</small></span></label>
-                </div>
-              </fieldset>
-
-              <fieldset class="game-step" data-game-step="3">
-                <legend>You need to explain a chart in a meeting. What is your approach?</legend>
-                <div class="game-option-grid">
-                  <label><input type="radio" name="gameQ3" value="0"><span><b>Show the chart and let people interpret it</b><small>The visual should speak for itself.</small></span></label>
-                  <label><input type="radio" name="gameQ3" value="1"><span><b>Read out the main numbers</b><small>I would describe what is visible.</small></span></label>
-                  <label><input type="radio" name="gameQ3" value="2"><span><b>Highlight the most important message</b><small>I would simplify the information and add context.</small></span></label>
-                  <label><input type="radio" name="gameQ3" value="3"><span><b>Connect the signal to a decision and next action</b><small>I would explain what changed, why it matters and what should happen next.</small></span></label>
-                </div>
-              </fieldset>
-
-              <div class="game-controls">
-                <button class="button button-ghost" type="button" id="game-back" disabled>Back</button>
-                <button class="button button-primary" type="button" id="game-next">Continue <span aria-hidden="true">→</span></button>
-              </div>
-            </form>
-          </div>
-
-          <aside class="confidence-passport" aria-live="polite">
-            <div class="passport-top"><span>Notabot confidence passport</span><b id="passport-status">Not started</b></div>
-            <div class="passport-score" style="--score:0" id="passport-score-ring"><div><strong id="passport-score">—</strong><small>confidence score</small></div></div>
-            <div class="passport-copy">
-              <span id="passport-badge-kicker">Your badge is waiting</span>
-              <h3 id="passport-level">Complete the challenge</h3>
-              <p id="passport-message">Answer four quick steps to unlock a positive starting level and a learning path matched to your role.</p>
-            </div>
-            <div class="passport-achievements" aria-label="Challenge achievements">
-              <div data-passport-achievement="role"><i>01</i><span><strong>Role found</strong><small>Choose who the learning is for</small></span></div>
-              <div data-passport-achievement="judgement"><i>02</i><span><strong>Judgement checked</strong><small>Work through real business situations</small></span></div>
-              <div data-passport-achievement="path"><i>03</i><span><strong>Path unlocked</strong><small>Receive a personal recommendation</small></span></div>
-            </div>
-            <div class="passport-result" id="passport-result" hidden>
-              <div class="passport-recommendation"><span>Recommended next step</span><strong id="passport-programme">Data Confidence for Your Role</strong><small id="passport-reason">A practical place to build everyday confidence.</small></div>
-              <div class="passport-actions"><button class="button button-primary" type="button" id="use-passport-path">Use this learning path</button><button class="button button-ghost" type="button" id="copy-passport-result">Copy result</button></div>
-              <button class="text-button" type="button" id="restart-confidence-game">Retake the challenge</button>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section challenge-section">
-      <div class="shell">
-        <div class="section-heading split-heading reveal">
-          <div>
-            <div class="eyebrow"><span></span> The capability gap</div>
-            <h2>More tools do not automatically create <em>better judgement.</em></h2>
-          </div>
-          <p>Organisations already have reports, dashboards and AI assistants. The gap is often the human capability to question, interpret, communicate and act on what those tools produce.</p>
-        </div>
-
-        <div class="challenge-grid">
-          <article class="challenge-card reveal tilt-card">
-            <span class="card-number">01</span>
-            <div><h3>Reports exist. Decisions stall.</h3><p>Teams can see the numbers but not always the meaning, context or next move.</p></div>
-          </article>
-          <article class="challenge-card reveal tilt-card">
-            <span class="card-number">02</span>
-            <div><h3>Training collides with BAU.</h3><p>Managers cannot release a full team for days without creating operational risk.</p></div>
-          </article>
-          <article class="challenge-card reveal tilt-card">
-            <span class="card-number">03</span>
-            <div><h3>Learning fades after class.</h3><p>Once-off content rarely survives real deadlines, messy data and stakeholder pressure.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section programmes-section" id="programmes">
-      <div class="shell">
-        <div class="programme-heading-row reveal">
-          <div>
-            <div class="eyebrow"><span></span> Learn by role</div>
-            <h2>Start with the person—not the software.</h2>
-          </div>
-          <p>Executives, managers, business professionals and analysts need different levels of data confidence. Choose the role first, then shape the learning around the work they actually do.</p>
-        </div>
-
-        <div class="pricing-toolbar reveal" aria-label="Programme pricing controls">
-          <div class="pricing-toolbar-title"><span>Live planning view</span><strong>Set the team size once. Compare every role.</strong></div>
-          <div class="people-planner" aria-label="Choose number of people">
-            <span class="people-label">People</span>
-            <div class="pricing-counter">
-              <button type="button" data-pricing-decrement aria-label="Remove one person">−</button>
-              <label><span class="sr-only">Number of people</span><input id="pricing-team-size" type="number" min="4" max="40" value="10" inputmode="numeric"></label>
-              <button type="button" data-pricing-increment aria-label="Add one person">+</button>
-            </div>
-            <div class="quick-size-list" aria-label="Quick team sizes">
-              <button type="button" data-team-size="5">5</button>
-              <button type="button" data-team-size="10" class="active">10</button>
-              <button type="button" data-team-size="15">15</button>
-              <button type="button" data-team-size="20">20</button>
-              <button type="button" data-team-size="30">30</button>
-            </div>
-          </div>
-          <label class="bau-toggle"><span class="bau-toggle-copy"><strong>Smaller rotating groups</strong><small>Keep more of the team available for BAU</small></span><input type="checkbox" id="pricing-bau-toggle" aria-label="Use smaller rotating groups"><i aria-hidden="true"></i></label>
-        </div>
-
-        <a class="impact-inline-note reveal" href="#impact" aria-label="Learn about the Notabot Impact Commitment">
-          <span class="impact-inline-mark">2%</span>
-          <span><strong>Notabot Impact Commitment</strong><small>A share of every qualifying corporate programme supports a verified cause chosen by the client—funded by Notabot, not added to the quote.</small></span>
-          <i aria-hidden="true">↘</i>
-        </a>
-
-        <div class="programme-pricing-shell role-pricing-shell reveal" aria-label="Role-based learning programmes">
-          <article class="programme-plan" data-programme-card="executive">
-            <div class="plan-topline"><span>Executives & senior leaders</span><b>Founder-led</b></div>
-            <h3>The Data-Smart<br><span>Executive</span></h3>
-            <p class="plan-description">Get up to speed quickly on analytics, dashboards, KPIs and AI—without a degree, long course or technical background.</p>
-            <div class="plan-price"><span>Estimated cohort fee</span><strong data-programme-price="executive">R10,000</strong><small data-programme-per-person="executive">R1,000 per person</small></div>
-            <div class="cohort-summary" data-programme-cohorts="executive">1 leadership group of 10 · 90 min + guided Q&amp;A</div>
-            <div class="plan-divider"></div>
-            <ul class="plan-features"><li>Understand what analytics and AI can do</li><li>Challenge KPIs and dashboards</li><li>Ask better questions of data teams</li><li>Make more confident decisions</li></ul>
-            <div class="badge-unlock"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Data-Smart Leader</strong></div></div>
-            <div class="plan-card-actions"><button class="button button-plan estimate-button magnetic" type="button" data-programme="executive">Build this plan</button><a class="text-link" href="#leaders">See executive offer <span>↗</span></a></div>
-          </article>
-
-          <article class="programme-plan" data-programme-card="business">
-            <div class="plan-topline"><span>Business professionals</span></div>
-            <h3>Data Confidence<br><span>for Your Role</span></h3>
-            <p class="plan-description">Learn what analytics means, how data can help your role and how to read reports without needing to become a data specialist.</p>
-            <div class="plan-price"><span>Estimated cohort fee</span><strong data-programme-price="business">R18,500</strong><small data-programme-per-person="business">R1,850 per person</small></div>
-            <div class="cohort-summary" data-programme-cohorts="business">1 group of 10 · 3 × 75 min + follow-up support</div>
-            <div class="plan-divider"></div>
-            <ul class="plan-features"><li>What data and analytics actually mean</li><li>How data supports your job</li><li>Read KPIs and dashboards with confidence</li><li>Ask useful business questions</li></ul>
-            <div class="badge-unlock"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Data-Confident Professional</strong></div></div>
-            <div class="plan-card-actions"><button class="button button-plan estimate-button magnetic" type="button" data-programme="business">Build this plan</button><a class="text-link" href="#planner">View details <span>↗</span></a></div>
-          </article>
-
-          <article class="programme-plan" data-programme-card="managers">
-            <div class="plan-topline"><span>Managers & team leaders</span></div>
-            <h3>Decision Intelligence<br><span>for Managers</span></h3>
-            <p class="plan-description">Use business questions, KPIs and evidence to run clearer performance conversations and make better decisions.</p>
-            <div class="plan-price"><span>Estimated cohort fee</span><strong data-programme-price="managers">R29,500</strong><small data-programme-per-person="managers">R2,950 per person</small></div>
-            <div class="cohort-summary" data-programme-cohorts="managers">1 group of 10 · 3 × 90 min + applied support</div>
-            <div class="plan-divider"></div>
-            <ul class="plan-features"><li>Frame the real business problem</li><li>Choose useful KPIs</li><li>Separate symptoms from causes</li><li>Turn insight into accountable action</li></ul>
-            <div class="badge-unlock"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Decision Builder</strong></div></div>
-            <div class="plan-card-actions"><button class="button button-plan estimate-button magnetic" type="button" data-programme="managers">Build this plan</button><a class="text-link" href="#planner">View details <span>↗</span></a></div>
-          </article>
-
-          <article class="programme-plan programme-plan-featured" data-programme-card="storytelling">
-            <div class="plan-topline"><span>Analysts & BI teams</span><b>Signature</b></div>
-            <h3>Data Storytelling<br><span>& Decision Design</span></h3>
-            <p class="plan-description">Build reports and presentations people understand, trust and act on—using clear stories, visuals and dashboard design.</p>
-            <div class="plan-price"><span>Estimated cohort fee</span><strong data-programme-price="storytelling">R42,500</strong><small data-programme-per-person="storytelling">R4,250 per person</small></div>
-            <div class="cohort-summary" data-programme-cohorts="storytelling">1 group of 10 · 4 × 2 hrs + dashboard review support</div>
-            <div class="plan-divider"></div>
-            <ul class="plan-features"><li>Find the message in the data</li><li>Choose clearer visuals</li><li>Design easier dashboards</li><li>Explain insight to decision-makers</li></ul>
-            <div class="badge-unlock"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Insight Storyteller</strong></div></div>
-            <div class="plan-card-actions"><button class="button button-plan button-plan-primary estimate-button magnetic" type="button" data-programme="storytelling">Build this plan</button><a class="text-link" href="#planner">View details <span>↗</span></a></div>
-          </article>
-        </div>
-        <p class="pricing-disclaimer">These are cohort-based planning estimates. The displayed programme fee is the minimum for one live cohort; extra cohort fees apply only when team size or BAU protection requires additional groups. Qualifying corporate programmes include the Notabot 2% Impact Commitment at no extra cost.</p>
-        <p class="mobile-swipe-hint" aria-hidden="true">Swipe to compare roles →</p>
-      </div>
-    </section>
-
-    <section class="section tool-training-section" id="tools">
-      <div class="shell">
-        <div class="programme-heading-row reveal">
-          <div><div class="eyebrow"><span></span> Tool-based training</div><h2>Learn the tool. Keep the business outcome in view.</h2></div>
-          <p>Power BI and Microsoft Fabric sit in their own learning paths. We still teach them through real business questions—not as a tour of buttons and menus.</p>
-        </div>
-        <div class="tool-training-grid reveal">
-          <article class="tool-training-card" data-programme-card="powerbi">
-            <div class="tool-card-top"><span>Microsoft Power BI</span><strong>Reporting & dashboards</strong></div>
-            <h3>Power BI learning path</h3>
-            <p>Build practical reporting skills from importing data and creating measures to designing clear, useful dashboards.</p>
-            <div class="tool-levels"><span>Foundations</span><span>Business reporting</span><span>Advanced</span></div>
-            <div class="tool-price-row"><div><small>Estimated cohort fee</small><strong data-programme-price="powerbi">R32,500</strong><span data-programme-per-person="powerbi">R3,250 per person</span></div><div data-programme-cohorts="powerbi">1 group of 10 · 4 × 2 hrs + follow-up support</div></div>
-            <div class="badge-unlock compact"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Power BI Report Builder</strong></div></div>
-            <button class="button button-plan estimate-button" type="button" data-programme="powerbi">Build a Power BI plan</button>
-          </article>
-          <article class="tool-training-card" data-programme-card="fabric">
-            <div class="tool-card-top"><span>Microsoft Fabric</span><strong>Modern data platform</strong></div>
-            <h3>Microsoft Fabric learning path</h3>
-            <p>Understand where Fabric fits, how data moves through the platform and what business, analyst and technical teams need to know.</p>
-            <div class="tool-levels"><span>Leader briefing</span><span>Foundations</span><span>Applied Fabric</span></div>
-            <div class="tool-price-row"><div><small>Estimated cohort fee</small><strong data-programme-price="fabric">R32,500</strong><span data-programme-per-person="fabric">R3,250 per person</span></div><div data-programme-cohorts="fabric">1 group of 10 · 4 × 2 hrs + follow-up support</div></div>
-            <div class="badge-unlock compact"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Fabric Navigator</strong></div></div>
-            <button class="button button-plan estimate-button" type="button" data-programme="fabric">Build a Fabric plan</button>
-          </article>
-        </div>
-        <p class="mobile-swipe-hint" aria-hidden="true">Swipe to compare tools →</p>
-      </div>
-    </section>
-
-    <section class="section individual-section" id="individuals">
-      <div class="shell">
-        <div class="programme-heading-row reveal">
-          <div><div class="eyebrow"><span></span> Learning for individuals</div><h2>You do not need a data job to start learning data.</h2></div>
-          <p>Short, beginner-friendly public courses for people who want to understand analytics, improve how they use information at work or explore a future in data.</p>
-        </div>
-        <div class="individual-pricing-shell reveal" aria-label="Individual learning courses">
-          <article class="individual-plan" data-course-card="analytics">
-            <div class="plan-topline"><span>Begin here</span></div><h3><span class="title-main title-main-long">Analytics Foundations</span><span class="title-sub">for Everyone</span></h3>
-            <p>Understand what data analytics is, the questions it answers and how organisations use it to solve problems.</p>
-            <div class="individual-price"><small>From</small><strong>R1,250</strong><span>per person</span></div>
-            <div class="individual-format">2 × 90 min live sessions</div>
-            <ul><li>No technical background needed</li><li>Plain-language examples</li><li>Follow-up learning guide</li></ul><div class="badge-unlock compact"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Data Explorer</strong></div></div>
-            <div class="individual-actions"><button class="button button-plan individual-interest" type="button" data-course="analytics">Register interest</button><button class="text-button individual-approval" type="button" data-individual-approval="analytics">Ask my manager to fund it</button></div>
-          </article>
-          <article class="individual-plan individual-plan-featured" data-course-card="role">
-            <div class="plan-topline"><span>Use data in your job</span><b>Popular</b></div><h3><span class="title-main">Data Confidence</span><span class="title-sub">for Your Role</span></h3>
-            <p>See how data can help in finance, HR, sales, operations, marketing, projects or another business role.</p>
-            <div class="individual-price"><small>From</small><strong>R1,500</strong><span>per person</span></div>
-            <div class="individual-format">2 × 90 min + follow-up support</div>
-            <ul><li>Choose your work context</li><li>Read reports and KPIs</li><li>Ask better questions</li></ul><div class="badge-unlock compact"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Confident Questioner</strong></div></div>
-            <div class="individual-actions"><button class="button button-plan individual-interest" type="button" data-course="role">Register interest</button><button class="text-button individual-approval" type="button" data-individual-approval="role">Ask my manager to fund it</button></div>
-          </article>
-          <article class="individual-plan" data-course-card="visualisation">
-            <div class="plan-topline"><span>See information clearly</span></div><h3><span class="title-main">Visualisation</span><span class="title-sub">Fundamentals</span></h3>
-            <p>Learn which chart to use, how to avoid misleading visuals and how to make information easier to understand.</p>
-            <div class="individual-price"><small>From</small><strong>R1,250</strong><span>per person</span></div>
-            <div class="individual-format">2 × 90 min live sessions</div>
-            <ul><li>Chart selection</li><li>Clear visual hierarchy</li><li>Before-and-after examples</li></ul><div class="badge-unlock compact"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Visual Clarity Builder</strong></div></div>
-            <div class="individual-actions"><button class="button button-plan individual-interest" type="button" data-course="visualisation">Register interest</button><button class="text-button individual-approval" type="button" data-individual-approval="visualisation">Ask my manager to fund it</button></div>
-          </article>
-          <article class="individual-plan" data-course-card="story">
-            <div class="plan-topline"><span>Explain the meaning</span></div><h3><span class="title-main">Data Storytelling</span><span class="title-sub">Foundations</span></h3>
-            <p>Turn numbers into a clear message, explain the context and recommend the next action with confidence.</p>
-            <div class="individual-price"><small>From</small><strong>R1,750</strong><span>per person</span></div>
-            <div class="individual-format">3 × 90 min + follow-up support</div>
-            <ul><li>Find the key message</li><li>Structure a simple story</li><li>Present an insight clearly</li></ul><div class="badge-unlock compact"><span aria-hidden="true">✦</span><div><small>Completion badge</small><strong>Insight Storyteller</strong></div></div>
-            <div class="individual-actions"><button class="button button-plan individual-interest" type="button" data-course="story">Register interest</button><button class="text-button individual-approval" type="button" data-individual-approval="story">Ask my manager to fund it</button></div>
-          </article>
-        </div>
-        <div class="individual-note reveal"><strong>Learning for one person—not only large teams.</strong><span>Public cohort dates are confirmed once enough learners have registered interest. Your details are only used to contact you about the selected course.</span></div>
-        <p class="mobile-swipe-hint" aria-hidden="true">Swipe to compare individual courses →</p>
-      </div>
-    </section>
-
-    <section class="section planner-section" id="planner">
-      <div class="planner-orbit" aria-hidden="true"></div>
-      <div class="shell">
-        <div class="section-heading split-heading reveal">
-          <div><div class="eyebrow"><span></span> Plan before you procure</div><h2>See the right cohort structure, BAU impact and <em>estimated investment.</em></h2></div>
-          <p>The planner recommends a delivery model based on programme complexity, team size and how strongly you need to protect BAU.</p>
-        </div>
-
-        <div class="planner-grid reveal">
-          <form class="planner-form" id="learning-planner" novalidate>
-            <div class="planner-game-progress" aria-live="polite">
-              <div class="planner-game-copy"><span>Your learning-plan quest</span><strong id="planner-progress-label">0 of 5 choices confirmed</strong></div>
-              <div class="planner-game-track"><i id="planner-progress-fill"></i></div>
-              <div class="planner-game-dots" aria-hidden="true"><span data-plan-dot="1">1</span><span data-plan-dot="2">2</span><span data-plan-dot="3">3</span><span data-plan-dot="4">4</span><span data-plan-dot="5">5</span></div>
-            </div>
-            <fieldset><legend>1. Who is the learning for?</legend><div class="programme-choice-grid" role="radiogroup" aria-label="Choose a learning programme">
-              <label><input type="radio" name="programme" value="executive"><span><strong>Executives</strong><small>Data-Smart Executive</small></span></label>
-              <label><input type="radio" name="programme" value="business" checked><span><strong>Business professionals</strong><small>Data confidence for your role</small></span></label>
-              <label><input type="radio" name="programme" value="managers"><span><strong>Managers</strong><small>Decision intelligence</small></span></label>
-              <label><input type="radio" name="programme" value="storytelling"><span><strong>Analysts & BI teams</strong><small>Storytelling and dashboard design</small></span></label>
-              <label><input type="radio" name="programme" value="powerbi"><span><strong>Power BI learners</strong><small>Tool-based training</small></span></label>
-              <label><input type="radio" name="programme" value="fabric"><span><strong>Fabric learners</strong><small>Tool-based training</small></span></label>
-            </div></fieldset>
-
-            <fieldset><legend>2. How many people need the learning?</legend>
-              <div class="participant-control"><button type="button" class="counter-button" data-decrement aria-label="Remove one participant">−</button><label class="participant-number"><span class="sr-only">Number of participants</span><input type="number" id="participant-number" min="4" max="40" value="10" inputmode="numeric"><small>people</small></label><button type="button" class="counter-button" data-increment aria-label="Add one participant">+</button></div>
-              <input class="participant-range" id="participant-range" type="range" min="4" max="40" value="10" aria-label="Number of participants"><div class="range-labels"><span>4</span><span>40</span></div><p class="participant-help">Team programmes are planned for 4–40 people. For 1–3 learners, choose an individual course or request a private session.</p>
-            </fieldset>
-
-            <fieldset><legend>3. How should the sessions fit around BAU?</legend><div class="choice-cards" role="radiogroup" aria-label="Choose delivery priority">
-              <label><input type="radio" name="bau" value="protect" checked><span><strong>Protect BAU</strong><small>Smaller rotating groups</small></span></label>
-              <label><input type="radio" name="bau" value="balanced"><span><strong>Balanced</strong><small>Standard group sizes</small></span></label>
-              <label><input type="radio" name="bau" value="fast"><span><strong>Finish sooner</strong><small>Sessions grouped into fewer days</small></span></label>
-            </div></fieldset>
-
-            <fieldset><legend>4. What support should follow the learning?</legend><div class="support-choice-grid" role="radiogroup" aria-label="Choose follow-up support">
-              <label><input type="radio" name="support" value="core" checked><span><strong>Follow-up support</strong><small>Included in the programme</small></span></label>
-              <label><input type="radio" name="support" value="readout"><span><strong>Leadership summary</strong><small>Add R7,500</small></span></label>
-              <label><input type="radio" name="support" value="continuity"><span><strong>30-day team support</strong><small>Add R15,000</small></span></label>
-            </div></fieldset>
-
-            <fieldset class="impact-fieldset"><legend>5. Which cause should the programme support?</legend>
-              <p class="fieldset-help">Notabot contributes 2% of the qualifying programme fee from our revenue. Choose a cause now, nominate a verified organisation later, or decide during the scope call.</p>
-              <div class="impact-choice-grid" role="radiogroup" aria-label="Choose a social impact cause">
-                <label><input type="radio" name="impact" value="later" checked><span><strong>Choose later</strong><small>Decide with your team</small></span></label>
-                <label><input type="radio" name="impact" value="youth"><span><strong>Youth education</strong><small>Learning and school support</small></span></label>
-                <label><input type="radio" name="impact" value="digital"><span><strong>Digital inclusion</strong><small>Access to technology and skills</small></span></label>
-                <label><input type="radio" name="impact" value="women"><span><strong>Women in technology</strong><small>Opportunity and participation</small></span></label>
-                <label><input type="radio" name="impact" value="employment"><span><strong>Employment readiness</strong><small>Skills for work and opportunity</small></span></label>
-                <label><input type="radio" name="impact" value="nominate"><span><strong>Nominate an organisation</strong><small>Subject to verification</small></span></label>
-              </div>
-            </fieldset>
-          </form>
-
-          <aside class="plan-result" aria-live="polite" aria-atomic="true">
-            <div class="plan-result-top"><span class="result-kicker">Recommended learning plan</span><span class="estimate-pill" id="plan-unlock-pill">Live estimate</span></div>
-            <h3 id="result-title">Data Confidence for Business Professionals</h3><p id="result-outcome">Understand data, reports and analytics in the context of everyday business work.</p>
-            <div class="result-metrics"><div><span>Participants</span><strong id="result-participants">10</strong></div><div><span>Cohort structure</span><strong id="result-cohorts">2 × 5</strong></div><div><span>Maximum away from BAU</span><strong id="result-bau">5 people</strong></div><div><span>Live learning days</span><strong id="result-window">4 focused session days</strong></div></div>
-            <p class="learning-days-note" id="result-days-note">Each learning day is a focused session, not a full day away from BAU.</p><div class="price-summary"><div><span>Estimated programme fee</span><strong id="result-price">R31,000</strong></div><div><span>Effective cost per participant</span><strong id="result-per-person">R3,100 per person</strong></div></div><p class="price-model-note" id="result-price-note">Programme fees are priced per cohort, not multiplied per person.</p>
-            <div class="impact-result-card">
-              <div class="impact-result-icon" aria-hidden="true">✦</div>
-              <div><span>Notabot-funded impact contribution</span><strong id="result-impact">R620</strong><small id="result-impact-cause">Cause chosen during the scope call</small></div>
-              <p>Included in the programme fee. We provide transparent proof and a Notabot Impact Certificate once the contribution is complete.</p>
-            </div>
-            <div class="plan-includes"><span>Included</span><ul id="result-includes"><li>Role-based live facilitation</li><li>Applied business exercises</li><li>Participant toolkit and follow-up support</li></ul></div>
-            <div class="plan-actions"><a class="button button-primary button-large magnetic" id="request-plan" href="#contact">Request this plan <span aria-hidden="true">↗</span></a><button class="button button-ghost button-large" id="copy-plan" type="button">Copy summary</button></div>
-            <button class="manager-pitch" id="open-manager-email" type="button" aria-haspopup="dialog" aria-controls="manager-email-dialog">
-              <span class="manager-pitch-icon" aria-hidden="true">✦</span>
-              <span><small>Need internal approval?</small><strong>Convince my manager</strong><em>Generate a polished, ready-to-send motivation email from this plan.</em></span>
-              <i aria-hidden="true">↗</i>
-            </button>
-            <p class="estimate-note">Estimate excludes travel outside Johannesburg, third-party costs and highly customised data or technical environments. VAT is added only if applicable. Impact contributions are made after full payment to a verified organisation and are capped at R5,000 per engagement.</p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section impact-section" id="impact">
-      <div class="shell">
-        <div class="section-heading split-heading reveal">
-          <div><div class="eyebrow"><span></span> Learn. Grow. Give back.</div><h2>Every programme can create opportunity <em>beyond the room.</em></h2></div>
-          <p>The Notabot Impact Commitment turns learning into shared value. The client chooses a verified cause, Notabot funds the contribution, and the outcome is documented clearly.</p>
-        </div>
-
-        <div class="impact-layout reveal">
-          <div class="impact-steps">
-            <article><span>01</span><div><strong>Choose a cause</strong><p>Select youth education, digital inclusion, women in technology, employment readiness—or nominate a verified organisation.</p></div></article>
-            <article><span>02</span><div><strong>Notabot contributes 2%</strong><p>The contribution comes from our programme revenue. It is not an extra line item added to the client’s quote.</p></div></article>
-            <article><span>03</span><div><strong>Receive transparent proof</strong><p>We share proof of payment and a Notabot Impact Certificate after the contribution is completed.</p></div></article>
-          </div>
-
-          <aside class="impact-live-card">
-            <div class="impact-live-top"><span>Based on your current plan</span><b>No extra cost</b></div>
-            <strong id="impact-example-amount">R370</strong>
-            <p>estimated contribution from <span id="impact-example-programme">Data Confidence for Business Professionals</span></p>
-            <div class="impact-live-cause"><span>Selected cause</span><strong id="impact-example-cause">Choose during the scope call</strong></div>
-            <a class="button button-light" href="#planner">Choose your impact cause</a>
-          </aside>
-        </div>
-
-        <p class="impact-terms">For qualifying corporate programmes. Calculated at 2% of the programme fee received, excluding VAT, travel, reimbursable expenses and third-party costs; capped at R5,000 per engagement. Donations are made to verified organisations after full payment. The Notabot Impact Certificate confirms the contribution but is not a tax receipt; any official tax acknowledgement must come from the recipient organisation where available.</p>
-      </div>
-    </section>
-
-    <section class="section method-section" id="method">
-      <div class="shell method-head reveal"><div><div class="eyebrow"><span></span> The Learning-in-Flow model</div><h2>Designed for transfer, not attendance.</h2></div><p>Every programme protects operational coverage while helping people apply learning between sessions.</p></div>
-      <div class="method-rail" data-method-rail>
-        <div class="method-track">
-          <article class="method-step"><span>01</span><div><small>DIAGNOSE</small><h3>Find the real capability gap.</h3><p>Clarify the audience, business outcome, confidence level and operational constraints before designing the learning.</p></div></article>
-          <article class="method-step"><span>02</span><div><small>DESIGN</small><h3>Teach by role—not by generic syllabus.</h3><p>Executives, managers, business users and report builders learn only what their role requires.</p></div></article>
-          <article class="method-step"><span>03</span><div><small>DELIVER</small><h3>Build capability inside the work.</h3><p>Focused cohorts keep BAU covered while people apply the learning between sessions.</p></div></article>
-          <article class="method-step"><span>04</span><div><small>REINFORCE</small><h3>Turn attendance into adoption.</h3><p>Participants use real problems, dashboards and KPIs, then return for a focused support session.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section executive-section" id="leaders">
-      <div class="shell">
-        <div class="executive-card reveal tilt-card">
-          <div class="executive-grid" aria-hidden="true"></div>
-          <div class="executive-copy"><div class="eyebrow light-eyebrow"><span></span> For Exco and senior leaders</div><h2>The Data-Smart Executive</h2><p>You do not need a degree or a long course to understand data in the meeting. This focused briefing helps leaders understand the numbers, challenge assumptions and know what to ask their data and AI teams.</p><div class="executive-tags"><span>90-minute briefing</span><span>Up to 12 leaders</span><span>Founder-led</span><span>Plain business language</span></div></div>
-          <div class="executive-offer"><span>Starting investment</span><strong>R10,000</strong><small>Executive session</small><a class="button button-light magnetic" href="#contact">Plan a leadership briefing</a></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section vision-section" id="vision">
-      <div class="shell vision-grid">
-        <figure class="vision-photo reveal">
-          <div class="photo-mask"><img src="assets/images/niren-training.webp" alt="Niren Gooroocharan presenting a practical framework during a data learning session"></div>
-        </figure>
-        <div class="vision-copy reveal"><div class="eyebrow"><span></span> The Notabot vision</div><h2>The talent is already inside the business.</h2><p class="vision-lead">Notabot exists to empower and enable people who want to learn more, solve meaningful problems and improve the industries they work in.</p><p>The next great analyst, data champion or problem-solver may not carry that title yet. They may simply need the right language, support and opportunity to unlock their confidence.</p>
-          <div class="vision-principles"><article><span>01</span><div><strong>Accessible by design</strong><small>Teach the judgement people need, at the level their role requires.</small></div></article><article><span>02</span><div><strong>Practical by default</strong><small>Use real business problems, dashboards and decisions.</small></div></article><article><span>03</span><div><strong>Tools serve people</strong><small>Power BI, Fabric and AI support the outcome; they are never the whole story.</small></div></article></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="shell contact-grid">
-        <div class="contact-copy reveal"><div class="eyebrow"><span></span> Start with the operating reality</div><h2>Tell us what you want to understand or improve.</h2><p>Whether you are planning learning for a team or starting on your own, tell us who it is for and what you want to become more confident with. We will recommend a clear next step.</p><div class="contact-points"><span>No generic catalogue pitch</span><span>No forced full-team shutdown</span><span>No unnecessary modules</span></div></div>
-        <form class="contact-form reveal" id="contact-form">
-          <div class="form-row"><label>Full name<input type="text" name="name" autocomplete="name" required></label><label>Work email<input type="email" name="email" autocomplete="email" required></label></div>
-          <div class="form-row"><label>Organisation<input type="text" name="organisation" autocomplete="organization" required></label><label>Role<input type="text" name="role" autocomplete="organization-title"></label></div>
-          <div class="form-row"><label>Audience<select name="audience"><option>Business professionals</option><option>Managers / team leaders</option><option>Analysts / BI teams</option><option>Executives / senior leaders</option><option>Power BI learners</option><option>Fabric learners</option><option>Individual learner</option><option>Mixed audience</option></select></label><label>Number of learners<input type="number" name="teamSize" min="1" max="500" value="10"></label></div>
-          <label>Main learning need<select name="need" id="contact-need">
-            <option>The Data-Smart Executive</option>
-            <option>Data Confidence for Business Professionals</option>
-            <option>Decision Intelligence for Managers</option>
-            <option>Data Storytelling &amp; Dashboard Decision Design</option>
-            <option>Power BI Foundations</option>
-            <option>Microsoft Fabric Foundations</option>
-            <option>Analytics Foundations for Everyone</option>
-            <option>Data Confidence for Your Role — Individual</option>
-            <option>Visualisation Fundamentals</option>
-            <option>Data Storytelling Foundations</option>
-            <option>Not sure yet</option>
-          </select></label>
-          <label>Preferred impact cause<select name="impactCause" id="contact-impact">
-            <option value="later">Choose during the scope call</option>
-            <option value="youth">Youth education</option>
-            <option value="digital">Digital inclusion</option>
-            <option value="women">Women in technology</option>
-            <option value="employment">Employment readiness</option>
-            <option value="nominate">Nominate a verified organisation</option>
-          </select></label>
-          <label>What needs to improve?<textarea name="message" rows="5" placeholder="For example: I want our managers to understand KPIs better, I want to learn what analytics is, or our team needs practical Power BI support."></textarea></label>
-          <input type="hidden" name="planSummary" id="plan-summary-field"><button class="button button-primary button-large magnetic" type="submit">Prepare my enquiry <span aria-hidden="true">↗</span></button><p class="form-note">This prototype prepares an email to hello@notabot.studio. A production form endpoint can be connected before launch.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-marquee" aria-hidden="true"><span>BUILD CONFIDENCE · KEEP BAU MOVING · BUILD CONFIDENCE · KEEP BAU MOVING ·</span></div>
-    <div class="shell footer-grid"><div class="footer-brand"><img src="assets/logo/notabot-wordmark-nav.png" alt="Notabot Studio"><p>Human-centred data capability for the AI era.</p></div><div><strong>Learn by role</strong><a href="#programmes">Executives</a><a href="#programmes">Business professionals</a><a href="#programmes">Managers & analysts</a></div><div><strong>Explore</strong><a href="#confidence-challenge">Confidence challenge</a><a href="#individuals">For individuals</a><a href="#tools">Tool training</a><a href="#planner">Plan & pricing</a><a href="#impact">Giving back</a></div><div><strong>Contact</strong><a href="mailto:hello@notabot.studio">hello@notabot.studio</a><a href="#contact">Design a learning plan</a></div></div>
-    <div class="shell footer-bottom"><span>© <span data-year></span> Notabot Studio.</span><span>Build confidence. Keep BAU moving.</span></div>
-  </footer>
-
-  <dialog class="manager-email-dialog" id="manager-email-dialog" aria-labelledby="manager-email-title">
-    <div class="manager-email-shell">
-      <header class="manager-email-header">
-        <div><span class="dialog-kicker">Approval assistant</span><h2 id="manager-email-title">Convince my manager</h2><p>A ready-to-send motivation email, adapted to the programme and learning plan you selected.</p></div>
-        <button class="dialog-close" id="close-manager-email" type="button" aria-label="Close email assistant">×</button>
-      </header>
-      <div class="manager-email-content">
-        <label>Subject<input id="manager-email-subject" type="text" autocomplete="off"></label>
-        <label>Email body<textarea id="manager-email-body" rows="16"></textarea></label>
-        <div class="manager-email-note"><span aria-hidden="true">✓</span><p>The draft includes the business outcome, group structure, BAU protection, duration and estimated investment. Edit any wording before sending.</p></div>
-      </div>
-      <footer class="manager-email-actions">
-        <button class="button button-primary" id="copy-manager-email" type="button">Copy email</button>
-        <button class="button button-ghost" id="open-manager-mail" type="button">Open in email app <span aria-hidden="true">↗</span></button>
-      </footer>
-    </div>
-  </dialog>
-
-  <div class="toast" role="status" aria-live="polite" data-toast>Plan summary copied.</div>
-  <a class="mobile-sticky-cta" href="#planner" data-mobile-cta>Build my learning plan <span aria-hidden="true">↗</span></a>
-  <script src="main.js"></script>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#050b14" name="theme-color"/>
+<link href="assets/logo/favicon.png" rel="icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Sora:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<title>Notabot Studio | Practical data &amp; AI training</title><meta content="Practical, role-based data and AI training that builds confident decision-makers across roles and industries." name="description"/></head><body class="home-page v18-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<div aria-hidden="true" class="cursor-dot" data-cursor-dot=""></div>
+<div aria-hidden="true" class="cursor-ring" data-cursor-ring=""></div>
+<div aria-hidden="true" class="scroll-progress"><span data-scroll-progress=""></span></div>
+<div aria-hidden="true" class="grain"></div>
+<header class="site-header" data-header="">
+<div class="shell nav-wrap">
+<a aria-label="Notabot Studio home" class="brand magnetic" href="index.html#top"><img alt="Notabot Studio" src="assets/logo/notabot-wordmark-nav.png"/></a>
+<nav aria-label="Primary navigation" class="desktop-nav"><a aria-current="page" href="index.html#how-it-works">How it works</a><a href="organisations.html">For organisations</a><a href="individuals.html">For individuals</a><a href="merch.html">Merch</a><a href="plan.html">Plan &amp; pricing</a></nav>
+<a class="button button-primary nav-cta magnetic" href="#confidence-challenge">Find my training path</a>
+<button aria-controls="mobile-menu" aria-expanded="false" class="menu-button" data-menu-button="" type="button"><span></span><span></span><span></span><span class="sr-only">Open menu</span></button>
+</div>
+<nav aria-label="Mobile navigation" class="mobile-menu" data-mobile-menu="" id="mobile-menu"><a aria-current="page" href="index.html#how-it-works">How it works</a><a href="organisations.html">For organisations</a><a href="individuals.html">For individuals</a><a href="merch.html">Merch</a><a href="plan.html">Plan &amp; pricing</a><a class="button button-primary" href="#confidence-challenge">Find my training path</a></nav>
+</header><main id="main">
+<section class="hero" data-scene="" id="top">
+<canvas aria-hidden="true" class="hero-canvas" id="data-core"></canvas>
+<div aria-hidden="true" class="hero-radial hero-radial-a"></div><div aria-hidden="true" class="hero-radial hero-radial-b"></div><div aria-hidden="true" class="hero-gridlines"></div>
+<div class="shell hero-shell">
+<div class="hero-copy" data-parallax="0.05">
+<div class="eyebrow reveal"><span></span> Practical, role-based data &amp; AI training</div>
+<h1 aria-label="Data and AI training that builds confident decision-makers." class="kinetic-title training-title"><span class="title-line title-line-a">Data &amp; AI training</span><span class="title-line title-line-b">that builds confident</span><span class="title-line title-line-c">decision-makers.</span></h1>
+<p class="hero-lead reveal">Short, role-based training uses real workplace scenarios and guided practice to help people across industries understand data, strengthen human judgement and apply new skills immediately.</p>
+<div class="hero-actions reveal"><a class="button button-primary button-large magnetic" href="#confidence-challenge">Find my training path <span aria-hidden="true">↓</span></a><a class="button button-ghost button-large magnetic" href="#how-it-works">See how the training works</a></div>
+<p class="hero-action-note reveal"><span aria-hidden="true">✦</span> Train for your role. Practise with real scenarios. Apply it to real work.</p>
+</div>
+<div aria-hidden="true" class="hero-orbit" data-parallax="-0.03"><div class="orbit-label orbit-label-a"><span>01</span> Question</div><div class="orbit-label orbit-label-b"><span>02</span> Interpret</div><div class="orbit-label orbit-label-c"><span>03</span> Decide</div><div class="orbit-label orbit-label-d"><span>04</span> Act</div><div class="core-copy"><span>NOTABOT // TRAINING-IN-FLOW</span><strong>Human judgement<br/>at the centre.</strong></div></div>
+<div class="hero-footer reveal"><div class="hero-proof"><span>01</span><strong>Plain language</strong></div><div class="hero-proof"><span>02</span><strong>Built for your role</strong></div><div class="hero-proof"><span>03</span><strong>Fits around BAU</strong></div><div class="hero-proof"><span>04</span><strong>Applied to real work</strong></div></div>
+</div>
+<a aria-label="Scroll to continue" class="scroll-cue" href="#how-it-works"><span>Scroll</span><i></i></a>
+</section>
+<section aria-label="Capability areas" class="ticker"><div class="ticker-track"><span>DATA CONFIDENCE</span><i>✦</i><span>ANALYTICS 101</span><i>✦</i><span>DECISION INTELLIGENCE</span><i>✦</i><span>DASHBOARD FLUENCY</span><i>✦</i><span>AI JUDGEMENT</span><i>✦</i><span>DATA CONFIDENCE</span><i>✦</i><span>ANALYTICS 101</span><i>✦</i><span>DECISION INTELLIGENCE</span><i>✦</i><span>DASHBOARD FLUENCY</span><i>✦</i><span>AI JUDGEMENT</span><i>✦</i></div></section><section aria-labelledby="confidence-game-title" class="section confidence-game-section home-confidence-section" id="confidence-challenge">
+<div class="shell"><div class="challenge-feature-bar v19-reveal"><span><b>Most-loved experience</b> Personal, practical and finished in about two minutes.</span><small>No sign-up needed · Your result stays on this device</small></div>
+<div class="programme-heading-row v19-reveal">
+<div><div class="eyebrow"><span></span> 2-minute Data Confidence Challenge</div><h2 id="confidence-game-title">Find your strongest starting point.</h2></div>
+<p>Four quick choices. No wrong answers. Unlock a confidence level and the clearest training path for the way you work.</p>
+</div>
+<div class="confidence-game-layout reveal">
+<div class="confidence-game-card" id="confidence-game-card">
+<div class="game-progress-head">
+<div><span>Challenge progress</span><strong id="game-progress-label">Step 1 of 4</strong></div>
+<div aria-hidden="true" class="game-progress-track"><i id="game-progress-fill"></i></div>
+</div>
+<form id="confidence-game" novalidate="">
+<fieldset class="game-step active" data-game-step="0">
+<legend>Which description fits you best?</legend>
+<p class="game-step-help">Choose one role. Your selection will be clearly highlighted before you continue.</p>
+<div class="game-option-grid game-role-grid">
+<label><input name="gameRole" type="radio" value="executive"/><span><b>Executive or senior leader</b><small>I need to understand the numbers and ask better questions.</small></span></label>
+<label><input name="gameRole" type="radio" value="business"/><span><b>Business professional</b><small>I want to use data more confidently in my current role.</small></span></label>
+<label><input name="gameRole" type="radio" value="managers"/><span><b>Manager or team leader</b><small>I use KPIs and evidence to guide people and performance.</small></span></label>
+<label><input name="gameRole" type="radio" value="storytelling"/><span><b>Analyst or BI professional</b><small>I build reports or explain insights to others.</small></span></label>
+<label><input name="gameRole" type="radio" value="individual"/><span><b>Individual learner</b><small>I am starting for myself or exploring a future in data.</small></span></label>
+</div>
+</fieldset>
+<fieldset class="game-step" data-game-step="1">
+<legend>A key number suddenly drops. What would you do first?</legend>
+<div class="game-option-grid">
+<label><input name="gameQ1" type="radio" value="0"/><span><b>Wait for someone to explain it</b><small>I would not know where to begin.</small></span></label>
+<label><input name="gameQ1" type="radio" value="1"/><span><b>Check whether the number is correct</b><small>I would confirm the report before discussing it.</small></span></label>
+<label><input name="gameQ1" type="radio" value="2"/><span><b>Ask what changed and compared with what</b><small>I would look for context, target and time period.</small></span></label>
+<label><input name="gameQ1" type="radio" value="3"/><span><b>Connect the change to causes and decisions</b><small>I would test the evidence and identify what action it affects.</small></span></label>
+</div>
+</fieldset>
+<fieldset class="game-step" data-game-step="2">
+<legend>AI gives you a confident answer. What happens next?</legend>
+<div class="game-option-grid">
+<label><input name="gameQ2" type="radio" value="0"/><span><b>Use it as written</b><small>It sounds convincing, so I would move ahead.</small></span></label>
+<label><input name="gameQ2" type="radio" value="1"/><span><b>Ask another person if it looks right</b><small>I would rely on someone with more experience.</small></span></label>
+<label><input name="gameQ2" type="radio" value="2"/><span><b>Verify the important facts</b><small>I would check sources, numbers and assumptions.</small></span></label>
+<label><input name="gameQ2" type="radio" value="3"/><span><b>Check the evidence, risk and decision context</b><small>I would use AI as support while keeping human judgement responsible.</small></span></label>
+</div>
+</fieldset>
+<fieldset class="game-step" data-game-step="3">
+<legend>You need to explain a chart in a meeting. What is your approach?</legend>
+<div class="game-option-grid">
+<label><input name="gameQ3" type="radio" value="0"/><span><b>Show the chart and let people interpret it</b><small>The visual should speak for itself.</small></span></label>
+<label><input name="gameQ3" type="radio" value="1"/><span><b>Read out the main numbers</b><small>I would describe what is visible.</small></span></label>
+<label><input name="gameQ3" type="radio" value="2"/><span><b>Highlight the most important message</b><small>I would simplify the information and add context.</small></span></label>
+<label><input name="gameQ3" type="radio" value="3"/><span><b>Connect the signal to a decision and next action</b><small>I would explain what changed, why it matters and what should happen next.</small></span></label>
+</div>
+</fieldset>
+<div aria-live="polite" class="game-selection-status" id="game-selection-status" role="status"><span aria-hidden="true">○</span><strong>Select one answer to continue</strong></div><div class="game-controls">
+<button class="button button-ghost" disabled="" id="game-back" type="button">← Back</button>
+<button aria-disabled="true" class="button button-primary" disabled="" id="game-next" type="button">Continue <span aria-hidden="true">→</span></button>
+</div>
+</form>
+</div>
+<aside aria-live="polite" class="confidence-passport">
+<div class="passport-top"><span>Notabot confidence passport</span><b id="passport-status">Not started</b></div>
+<div class="passport-score" id="passport-score-ring" style="--score:0"><div><strong id="passport-score">—</strong><small>confidence score</small></div></div>
+<div class="passport-copy">
+<span id="passport-badge-kicker">Your badge is waiting</span>
+<h3 id="passport-level">Complete the challenge</h3>
+<p id="passport-message">Answer four quick steps to unlock a positive starting level and a training path matched to your role.</p>
+</div>
+<div aria-label="Challenge achievements" class="passport-achievements">
+<div class="current" data-passport-achievement="role"><i>01</i><span><strong>Role found</strong><small>Choose who the training is for</small></span></div>
+<div class="upcoming" data-passport-achievement="judgement"><i>02</i><span><strong>Judgement checked</strong><small>Work through real business situations</small></span></div>
+<div class="upcoming" data-passport-achievement="path"><i>03</i><span><strong>Path unlocked</strong><small>Receive a personal recommendation</small></span></div>
+</div>
+<div class="passport-result" hidden="" id="passport-result">
+<div class="passport-recommendation"><span>Recommended next step</span><strong id="passport-programme">Data Confidence for Your Role</strong><small id="passport-reason">A practical place to build everyday confidence.</small></div>
+<div class="passport-actions"><button class="button button-primary" id="use-passport-path" type="button">Use this training path</button><button class="button button-ghost" id="copy-passport-result" type="button">Copy result</button></div>
+<button class="text-button" id="restart-confidence-game" type="button">Retake the challenge</button>
+</div>
+</aside>
+</div>
+</div>
+</section>
+<section aria-labelledby="demo-title" class="section demo-section analytics-story-section" id="how-it-works">
+<div class="shell">
+<div class="section-heading split-heading v18-reveal"><div><div class="eyebrow eyebrow-dark"><span></span> Analytics 101 · fictional 60-second case</div><h2 id="demo-title">Friday, 4:32 PM. <em>Revenue is down 12%.</em></h2></div><p>The meeting wants an answer. Analytics slows the panic down just enough to make the right decision.</p></div>
+<div class="decision-demo analytics-story v18-reveal" data-decision-demo="">
+<div class="story-case-cue"><span><b>Follow the case</b> Click a chapter or use the main button.</span><small>One number · four analytical questions · one better decision</small></div><div aria-label="Case study progress" class="story-progress" role="tablist">
+<button aria-selected="true" class="active" data-demo-step="0" role="tab" type="button"><span>01</span><strong>Alert</strong></button>
+<button aria-selected="false" data-demo-step="1" role="tab" type="button"><span>02</span><strong>Investigate</strong></button>
+<button aria-selected="false" data-demo-step="2" role="tab" type="button"><span>03</span><strong>Reveal</strong></button>
+<button aria-selected="false" data-demo-step="3" role="tab" type="button"><span>04</span><strong>Act</strong></button>
+</div>
+<div aria-live="polite" class="demo-content analytics-story-content">
+<div aria-hidden="true" class="demo-dashboard analytics-case-visual">
+<div class="demo-dashboard-head"><span>FRIDAY SALES ROOM</span><b data-demo-stage-label="">Signal detected</b></div>
+<div class="demo-kpi"><strong data-demo-kpi="">−12%</strong><span data-demo-kpi-label="">versus last Friday</span></div>
+<div class="demo-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<div class="demo-evidence" data-demo-evidence=""><span>Demand?</span><span>Data quality?</span><span>Operations?</span></div>
+</div>
+<div class="demo-copy-stack analytics-story-copy">
+<div class="demo-progress-copy"><span>THE CASE OF THE MISSING SALES</span><strong data-demo-counter="">Part 1 of 4</strong></div>
+<article class="demo-panel active" data-demo-panel="0"><span class="demo-panel-kicker">THE ALERT · WHAT HAPPENED?</span><h3>The dashboard flashes red. The room blames marketing.</h3><p>Friday revenue is down 12%. The quickest idea is to cut advertising—but the number only tells us <strong>what changed</strong>.</p><div class="demo-callout warning"><b>Your move:</b> investigate before you react.</div></article>
+<article class="demo-panel" data-demo-panel="1" hidden=""><span class="demo-panel-kicker">THE INVESTIGATION · WHY?</span><h3>Three clues refuse to fit the first story.</h3><ul class="demo-question-list"><li>Website traffic is steady.</li><li>Orders placed are almost unchanged.</li><li>The drop is concentrated in one fulfilment region.</li></ul><div class="demo-callout"><b>Better question:</b> did demand fall—or did completed revenue move?</div></article>
+<article class="demo-panel" data-demo-panel="2" hidden=""><span class="demo-panel-kicker">THE REVEAL · WHAT MAY HAPPEN NEXT?</span><h3>The missing sales are sitting in a depot—not in the market.</h3><p>A dispatch delay held completed orders past Friday’s cut-off. Demand is healthy; fulfilment is late.</p><div class="demo-callout"><b>Plot twist:</b> cutting marketing would attack the wrong problem and weaken next week’s demand.</div></article>
+<article class="demo-panel" data-demo-panel="3" hidden=""><span class="demo-panel-kicker">THE DECISION · WHAT SHOULD WE DO?</span><h3>Clear the backlog. Protect demand. Watch recovery.</h3><p>The team fixes dispatch capacity, tracks delayed orders and keeps marketing active. That is Analytics 101: turning evidence into understanding and action.</p><div class="analytics-101-grid"><span><b>What happened?</b>Revenue fell 12%</span><span><b>Why?</b>A fulfilment delay</span><span><b>What may happen?</b>A growing backlog</span><span><b>What should we do?</b>Fix dispatch and monitor</span></div></article>
+<div class="demo-controls"><button class="demo-control-back" data-demo-back="" disabled="" type="button">← Back</button><button class="demo-control-next" data-demo-next="" type="button">Find out what really happened →</button></div>
+</div>
+</div>
+<div class="demo-outcome"><span>ANALYTICS 101</span><strong>Analytics is not the dashboard. It is the thinking that turns evidence into a better decision.</strong></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="audience-title" class="section audience-section" id="audience-paths"><div class="shell">
+<div class="programme-heading-row v18-reveal"><div><div class="eyebrow"><span></span> Choose your route</div><h2 id="audience-title">One product. <em>Two clear ways to start.</em></h2></div><p>Start with the route that matches what you need today. The detail lives on its own page, so this decision stays simple.</p></div>
+<div class="audience-grid compact-audience-grid">
+<article class="audience-card audience-card-featured v18-reveal"><div class="audience-card-top"><span>For organisations</span><b>Teams &amp; leaders</b></div><h3>Build capability across the business.</h3><p>Role-based cohorts that improve data confidence while protecting BAU.</p><div class="audience-actions"><a class="button button-primary" href="organisations.html">Explore organisation training <span aria-hidden="true">→</span></a></div></article>
+<article class="audience-card v18-reveal"><div class="audience-card-top"><span>For individuals</span><b>Start for yourself</b></div><h3>Build confidence for your own role.</h3><p>Beginner-friendly training and a quick challenge to find your best starting point.</p><div class="audience-actions"><a class="button button-ghost" href="individuals.html">Explore individual training <span aria-hidden="true">→</span></a></div></article>
+</div>
+</div></section>
+<section class="section home-outcomes-section"><div class="shell"><div class="home-outcomes v18-reveal"><article><span>01</span><div><strong>Ask better questions</strong><small>Move beyond accepting a number at face value.</small></div></article><article><span>02</span><div><strong>Explain the meaning</strong><small>Turn charts and AI outputs into a clear business story.</small></div></article><article><span>03</span><div><strong>Choose the next action</strong><small>Connect evidence to an accountable decision.</small></div></article></div></div></section>
+<section class="section vision-section home-vision" id="vision"><div class="shell vision-grid"><figure class="vision-photo reveal"><div class="photo-mask"><img alt="Niren Gooroocharan presenting a practical data learning framework" src="assets/images/niren-training.webp"/></div></figure><div class="vision-copy reveal"><div class="eyebrow"><span></span> Founder-led training</div><h2>The talent is already inside the business.</h2><p class="vision-lead">Notabot helps people unlock it with practical language, real examples and training designed around the decisions they already make.</p><div class="vision-principles"><article><span>01</span><div><strong>Accessible</strong><small>No technical identity required.</small></div></article><article><span>02</span><div><strong>Practical</strong><small>Use real work, not abstract exercises.</small></div></article><article><span>03</span><div><strong>Human</strong><small>Tools support judgement; they do not replace it.</small></div></article></div><a class="button button-ghost" href="organisations.html">See how teams train <span aria-hidden="true">→</span></a></div></div></section>
+<section class="section home-cta-section"><div class="shell"><div class="cta-band v18-reveal v19-next-step"><div><div class="eyebrow light-eyebrow"><span></span> Choose the next step</div><h2>Turn confidence into capability.</h2><p>Explore training for yourself, or build a practical plan for a team.</p></div><div class="cta-band-actions"><a class="button button-light" href="individuals.html">Explore individual training</a><a class="button button-ghost" href="plan.html">Plan for a team</a></div></div></div></section>
+</main>
+<footer>
+<div aria-hidden="true" class="footer-marquee"><span>BUILD CONFIDENCE · KEEP BAU MOVING · BUILD CONFIDENCE · KEEP BAU MOVING ·</span></div>
+<div class="shell footer-grid">
+<div class="footer-brand"><img alt="Notabot Studio" src="assets/logo/notabot-wordmark-nav.png"/><p>Practical data and AI training with human judgement at the centre.</p></div>
+<div><strong>Start here</strong><a href="index.html#how-it-works">Analytics 101</a><a href="organisations.html">For organisations</a><a href="individuals.html">For individuals</a></div>
+<div><strong>Explore</strong><a href="#confidence-challenge">Confidence challenge</a><a href="plan.html">Plan &amp; pricing</a><a href="merch.html">Merch</a></div>
+<div><strong>Contact</strong><a href="mailto:hello@notabot.studio">hello@notabot.studio</a><a href="plan.html#contact">Design a training plan</a></div>
+</div>
+<div class="shell footer-bottom"><span>© <span data-year=""></span> Notabot Studio.</span><span>Human judgement at the centre.</span></div>
+</footer><div aria-live="polite" class="toast" data-toast="" role="status">Done.</div><a class="mobile-sticky-cta" data-mobile-cta="" href="#confidence-challenge">Find my training path <span aria-hidden="true">↗</span></a><script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script><script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script><script defer="" src="main.js"></script></body></html>

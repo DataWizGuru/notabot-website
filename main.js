@@ -12,6 +12,15 @@ const managerEmailDialog = document.querySelector('#manager-email-dialog');
 const managerEmailSubject = document.querySelector('#manager-email-subject');
 const managerEmailBody = document.querySelector('#manager-email-body');
 const MIN_CORPORATE_TEAM_SIZE = 4;
+const merchDialog = document.querySelector('#merch-dialog');
+const merchDialogImage = document.querySelector('#merch-dialog-image');
+const merchOrderProduct = document.querySelector('#merch-order-product');
+const merchOrderCategory = document.querySelector('#merch-order-category');
+const merchOrderUnitPrice = document.querySelector('#merch-order-unit-price');
+const merchColourOptions = document.querySelector('#merch-colour-options');
+const merchSizeOptions = document.querySelector('#merch-size-options');
+const merchQtyOutput = document.querySelector('#merch-qty');
+const merchOrderTotal = document.querySelector('#merch-order-total');
 
 const programmes = {
   executive: {
@@ -106,6 +115,55 @@ const individualCourses = {
   visualisation: { name: 'Visualisation Fundamentals', price: 1250, format: '2 × 90-minute live sessions', benefits: ['choose clearer charts and avoid misleading visuals', 'make business information easier for others to understand'] },
   story: { name: 'Data Storytelling Foundations', price: 1750, format: '3 × 90-minute sessions plus follow-up support', benefits: ['turn numbers into a clear message', 'explain context and recommend the next action with confidence'] }
 };
+
+
+const merchProducts = {
+  hoodie: {
+    name: 'Notabot Core Hoodie',
+    category: 'Outer layer',
+    price: 749,
+    image: 'assets/images/merch/core-hoodie.webp',
+    colours: ['White', 'Black'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL']
+  },
+  longsleeve: {
+    name: 'Notabot Signal Long Sleeve',
+    category: 'Everyday essential',
+    price: 449,
+    image: 'assets/images/merch/signal-long-sleeve.webp',
+    colours: ['Black', 'White'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL']
+  },
+  cap: {
+    name: 'Notabot Studio Cap',
+    category: 'Daily signal',
+    price: 299,
+    image: 'assets/images/merch/performance-flatlay.webp',
+    colours: ['Black'],
+    sizes: ['Adjustable']
+  },
+  performance: {
+    name: 'Notabot Flow Performance Hoodie',
+    category: 'Movement layer',
+    price: 649,
+    image: 'assets/images/merch/flow-performance.webp',
+    colours: ['Graphite'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL']
+  },
+  bundle: {
+    name: 'The Field Kit Bundle',
+    category: 'Best-value bundle',
+    price: 1299,
+    image: 'assets/images/merch/field-kit-bundle.webp',
+    colours: ['Light kit', 'Dark kit'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL']
+  }
+};
+
+let selectedMerchKey = 'hoodie';
+let selectedMerchColour = 'White';
+let selectedMerchSize = 'M';
+let selectedMerchQty = 1;
 
 const supportOptions = {
   core: { price: 0, label: 'Follow-up support included' },
@@ -428,6 +486,119 @@ function initManifesto() {
 
   setActive(0);
 }
+
+function initDecisionDemo() {
+  const demo = document.querySelector('[data-decision-demo]');
+  if (!demo) return;
+  const tabs = [...demo.querySelectorAll('[data-demo-step]')];
+  const panels = [...demo.querySelectorAll('[data-demo-panel]')];
+  const back = demo.querySelector('[data-demo-back]');
+  const next = demo.querySelector('[data-demo-next]');
+  const counter = demo.querySelector('[data-demo-counter]');
+  const stageLabel = demo.querySelector('[data-demo-stage-label]');
+  const kpi = demo.querySelector('[data-demo-kpi]');
+  const kpiLabel = demo.querySelector('[data-demo-kpi-label]');
+  const evidence = demo.querySelector('[data-demo-evidence]');
+  const visual = demo.querySelector('.analytics-case-visual');
+  const copy = demo.querySelector('.analytics-story-copy');
+  let current = 0;
+
+  const states = [
+    { stage:'Alert received', kpi:'−12%', label:'Friday revenue', evidence:['Demand?','Data quality?','Operations?'], next:'Investigate the drop →' },
+    { stage:'Evidence checked', kpi:'3', label:'clues investigated', evidence:['Traffic steady','Orders steady','One region'], next:'Follow the evidence →' },
+    { stage:'Cause found', kpi:'1', label:'dispatch delay', evidence:['Demand healthy','Cut-off missed','Backlog growing'], next:'Make the decision →' },
+    { stage:'Action chosen', kpi:'✓', label:'right problem fixed', evidence:['Clear backlog','Protect demand','Track recovery'], next:'Replay the case ↺' }
+  ];
+
+  const render = index => {
+    current = Math.max(0, Math.min(states.length - 1, index));
+    const state = states[current];
+    tabs.forEach((tab, i) => {
+      const active = i === current;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+    panels.forEach((panel, i) => {
+      const active = i === current;
+      panel.hidden = !active;
+      panel.classList.toggle('active', active);
+    });
+    if (counter) counter.textContent = `Part ${current + 1} of ${states.length}`;
+    if (stageLabel) stageLabel.textContent = state.stage;
+    if (kpi) kpi.textContent = state.kpi;
+    if (kpiLabel) kpiLabel.textContent = state.label;
+    if (evidence) evidence.innerHTML = state.evidence.map(item => `<span class="${current ? 'confirmed' : ''}">${item}</span>`).join('');
+    if (back) back.disabled = current === 0;
+    if (next) next.textContent = state.next;
+    demo.dataset.demoState = String(current);
+  };
+
+  const update = index => {
+    const safe = index < 0 ? 0 : index >= states.length ? 0 : index;
+    if (!reducedMotion && window.gsap && copy && visual) {
+      window.gsap.to([copy, visual], {opacity:.28, y:8, duration:.16, ease:'power1.out', onComplete:() => {
+        render(safe);
+        window.gsap.fromTo([visual, copy], {opacity:.35, y:12}, {opacity:1, y:0, duration:.42, stagger:.05, ease:'power3.out'});
+      }});
+    } else render(safe);
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => update(index));
+    tab.addEventListener('keydown', event => {
+      if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+      event.preventDefault();
+      let nextIndex = index;
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = tabs.length - 1;
+      update(nextIndex);
+      tabs[nextIndex]?.focus();
+    });
+  });
+  back?.addEventListener('click', () => update(current - 1));
+  next?.addEventListener('click', () => update(current + 1));
+  render(0);
+}
+
+function initGsapEnhancements() {
+  if (reducedMotion || !window.gsap) return;
+  const { gsap } = window;
+  if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
+
+  gsap.from('.hero-copy .eyebrow, .hero-lead, .hero-actions, .hero-action-note', {
+    opacity: 0,
+    y: 22,
+    duration: .7,
+    stagger: .09,
+    delay: .15,
+    ease: 'power3.out',
+    clearProps: 'transform,opacity'
+  });
+  gsap.from('.hero-orbit', {
+    opacity: 0,
+    scale: .92,
+    duration: 1.05,
+    delay: .25,
+    ease: 'power3.out',
+    clearProps: 'transform,opacity'
+  });
+
+  if (!window.ScrollTrigger) return;
+  gsap.utils.toArray('.v16-reveal').forEach(element => {
+    gsap.from(element, {
+      opacity: 0,
+      y: 34,
+      duration: .75,
+      ease: 'power3.out',
+      clearProps: 'transform,opacity',
+      scrollTrigger: { trigger: element, start: 'top 86%', once: true }
+    });
+  });
+}
+
 function initParallax() {
   if (reducedMotion) return;
   const items = [...document.querySelectorAll('[data-parallax]')];
@@ -731,6 +902,128 @@ ${managerEmailBody?.value || ''}`.trim();
   });
 }
 
+
+function merchChoiceButtons(container, values, selected, onSelect) {
+  if (!container) return;
+  container.innerHTML = '';
+  values.forEach(value => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = value;
+    button.classList.toggle('active', value === selected);
+    button.setAttribute('aria-pressed', String(value === selected));
+    button.addEventListener('click', () => {
+      onSelect(value);
+      [...container.children].forEach(child => {
+        const active = child.textContent === value;
+        child.classList.toggle('active', active);
+        child.setAttribute('aria-pressed', String(active));
+      });
+    });
+    container.appendChild(button);
+  });
+}
+
+function merchOrderSummary() {
+  const product = merchProducts[selectedMerchKey];
+  const name = document.querySelector('#merch-name')?.value?.trim() || '[Your name]';
+  const email = document.querySelector('#merch-email')?.value?.trim() || 'Not provided';
+  const location = document.querySelector('#merch-location')?.value?.trim() || 'To be confirmed';
+  const total = product.price * selectedMerchQty;
+  return {
+    subject: `Notabot merch preorder — ${product.name}`,
+    body: [
+      'Hi Notabot Studio,',
+      '',
+      `I would like to reserve the following item from the Notabot Field Kit:`,
+      '',
+      `Product: ${product.name}`,
+      `Colour: ${selectedMerchColour}`,
+      `Size: ${selectedMerchSize}`,
+      `Quantity: ${selectedMerchQty}`,
+      `Estimated merchandise total: ${money.format(total)}`,
+      `Delivery city / area: ${location}`,
+      '',
+      `Name: ${name}`,
+      `Email: ${email}`,
+      '',
+      'I understand that stock, garment details, delivery cost and the final delivery date will be confirmed before payment.',
+      '',
+      'Thanks'
+    ].join('\n')
+  };
+}
+
+function updateMerchTotal() {
+  const product = merchProducts[selectedMerchKey];
+  if (merchQtyOutput) merchQtyOutput.textContent = String(selectedMerchQty);
+  if (merchOrderTotal) merchOrderTotal.textContent = money.format(product.price * selectedMerchQty);
+}
+
+function openMerchDialog(productKey) {
+  const product = merchProducts[productKey] || merchProducts.hoodie;
+  selectedMerchKey = productKey in merchProducts ? productKey : 'hoodie';
+  selectedMerchColour = product.colours[0];
+  selectedMerchSize = product.sizes.includes('M') ? 'M' : product.sizes[0];
+  selectedMerchQty = 1;
+
+  if (merchDialogImage) {
+    merchDialogImage.src = product.image;
+    merchDialogImage.alt = product.name;
+  }
+  if (merchOrderProduct) merchOrderProduct.textContent = product.name;
+  if (merchOrderCategory) merchOrderCategory.textContent = product.category;
+  if (merchOrderUnitPrice) merchOrderUnitPrice.textContent = `${money.format(product.price)} each`;
+
+  merchChoiceButtons(merchColourOptions, product.colours, selectedMerchColour, value => {
+    selectedMerchColour = value;
+  });
+  merchChoiceButtons(merchSizeOptions, product.sizes, selectedMerchSize, value => {
+    selectedMerchSize = value;
+  });
+  updateMerchTotal();
+
+  if (typeof merchDialog?.showModal === 'function') merchDialog.showModal();
+  else merchDialog?.setAttribute('open', '');
+  window.setTimeout(() => merchColourOptions?.querySelector('button')?.focus(), 80);
+}
+
+function initMerch() {
+  document.querySelectorAll('[data-merch-product]').forEach(button => {
+    button.addEventListener('click', () => openMerchDialog(button.dataset.merchProduct));
+  });
+
+  document.querySelector('#close-merch-dialog')?.addEventListener('click', () => merchDialog?.close());
+  merchDialog?.addEventListener('click', event => {
+    if (event.target === merchDialog) merchDialog.close();
+  });
+
+  document.querySelector('#merch-qty-minus')?.addEventListener('click', () => {
+    selectedMerchQty = Math.max(1, selectedMerchQty - 1);
+    updateMerchTotal();
+  });
+  document.querySelector('#merch-qty-plus')?.addEventListener('click', () => {
+    selectedMerchQty = Math.min(20, selectedMerchQty + 1);
+    updateMerchTotal();
+  });
+
+  document.querySelector('#merch-copy-order')?.addEventListener('click', async () => {
+    const content = merchOrderSummary();
+    try {
+      await navigator.clipboard.writeText(`${content.subject}\n\n${content.body}`);
+      showToast('Merch preorder request copied.');
+    } catch {
+      showToast('Copy unavailable in this browser.');
+    }
+  });
+
+  document.querySelector('#merch-email-order')?.addEventListener('click', () => {
+    const content = merchOrderSummary();
+    window.location.href = `mailto:hello@notabot.studio?subject=${encodeURIComponent(content.subject)}&body=${encodeURIComponent(content.body)}`;
+  });
+}
+
+
 function initContactForm() {
   const form = document.querySelector('#contact-form');
   form?.addEventListener('submit', event => {
@@ -848,6 +1141,7 @@ function renderConfidencePassport(result, restored = false) {
   document.querySelector('[data-passport-achievement="judgement"]')?.classList.add('unlocked');
   document.querySelector('[data-passport-achievement="path"]')?.classList.add('unlocked');
   if (resultBox) resultBox.hidden = false;
+  document.querySelector('.confidence-passport')?.classList.add('completed');
   result.recommendation = recommendation;
   result.level = level;
   document.querySelector('#use-passport-path')?.setAttribute('data-result-type', recommendation.type);
@@ -862,33 +1156,104 @@ function initConfidenceGame() {
   const back = document.querySelector('#game-back');
   const progressLabel = document.querySelector('#game-progress-label');
   const progressFill = document.querySelector('#game-progress-fill');
+  const selectionStatus = document.querySelector('#game-selection-status');
+  const challengeCard = document.querySelector('#confidence-game-card');
   let current = 0;
 
+  steps.forEach(step => { step.tabIndex = -1; });
   const selectedInStep = step => step.querySelector('input:checked');
-  const updateGameView = () => {
+  const answeredScenarios = () => ['gameQ1','gameQ2','gameQ3'].filter(name => game.querySelector(`input[name="${name}"]:checked`)).length;
+
+  const setAchievementStates = (completed = false) => {
+    const roleItem = document.querySelector('[data-passport-achievement="role"]');
+    const judgementItem = document.querySelector('[data-passport-achievement="judgement"]');
+    const pathItem = document.querySelector('[data-passport-achievement="path"]');
+    const roleChosen = Boolean(game.querySelector('input[name="gameRole"]:checked'));
+    const scenarios = answeredScenarios();
+
+    [roleItem, judgementItem, pathItem].forEach(item => item?.classList.remove('current', 'upcoming', 'unlocked'));
+    if (completed) {
+      roleItem?.classList.add('unlocked');
+      judgementItem?.classList.add('unlocked');
+      pathItem?.classList.add('unlocked');
+      return;
+    }
+    if (roleChosen) roleItem?.classList.add('unlocked');
+    else roleItem?.classList.add('current');
+
+    if (!roleChosen) judgementItem?.classList.add('upcoming');
+    else if (scenarios >= 2) judgementItem?.classList.add('unlocked');
+    else judgementItem?.classList.add('current');
+
+    pathItem?.classList.add('upcoming');
+  };
+
+  const updateSelectionStatus = (hasSelection, error = false) => {
+    if (!selectionStatus) return;
+    selectionStatus.classList.toggle('ready', hasSelection && !error);
+    selectionStatus.classList.toggle('error', error);
+    const icon = selectionStatus.querySelector('span');
+    const copy = selectionStatus.querySelector('strong');
+    if (error) {
+      if (icon) icon.textContent = '!';
+      if (copy) copy.textContent = 'Choose one answer before continuing';
+    } else if (hasSelection) {
+      if (icon) icon.textContent = '✓';
+      if (copy) copy.textContent = 'Selection confirmed — continue when ready';
+    } else {
+      if (icon) icon.textContent = '○';
+      if (copy) copy.textContent = 'Select one answer to continue';
+    }
+  };
+
+  const updateGameView = ({ moveFocus = false } = {}) => {
     steps.forEach((step, index) => step.classList.toggle('active', index === current));
     if (progressLabel) progressLabel.textContent = `Step ${current + 1} of ${steps.length}`;
     if (progressFill) progressFill.style.width = `${((current + 1) / steps.length) * 100}%`;
     if (back) back.disabled = current === 0;
     if (next) next.innerHTML = current === steps.length - 1 ? 'Unlock my result <span aria-hidden="true">✦</span>' : 'Continue <span aria-hidden="true">→</span>';
+
+    const hasSelection = Boolean(selectedInStep(steps[current]));
+    if (next) {
+      next.disabled = !hasSelection;
+      next.setAttribute('aria-disabled', String(!hasSelection));
+    }
+    updateSelectionStatus(hasSelection);
+    setAchievementStates(false);
+
+    if (moveFocus) {
+      challengeCard?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+      window.setTimeout(() => steps[current]?.focus({ preventScroll: true }), reducedMotion ? 0 : 350);
+    }
   };
 
   game.addEventListener('change', event => {
-    if (event.target.name === 'gameRole') document.querySelector('[data-passport-achievement="role"]')?.classList.add('unlocked');
-    const answeredScenarios = ['gameQ1','gameQ2','gameQ3'].filter(name => game.querySelector(`input[name="${name}"]:checked`)).length;
-    if (answeredScenarios >= 2) document.querySelector('[data-passport-achievement="judgement"]')?.classList.add('unlocked');
+    const step = event.target.closest('[data-game-step]');
+    if (!step) return;
+    const hasSelection = Boolean(selectedInStep(step));
+    if (step === steps[current] && next) {
+      next.disabled = !hasSelection;
+      next.setAttribute('aria-disabled', String(!hasSelection));
+      updateSelectionStatus(hasSelection);
+      if (hasSelection && selectionStatus) {
+        const rect = selectionStatus.getBoundingClientRect();
+        if (rect.bottom > window.innerHeight - 84 || rect.top < 90) {
+          window.setTimeout(() => selectionStatus.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' }), 80);
+        }
+      }
+    }
+    setAchievementStates(false);
   });
 
   next?.addEventListener('click', () => {
     if (!selectedInStep(steps[current])) {
-      showToast('Choose the answer that feels closest to you.');
+      updateSelectionStatus(false, true);
       steps[current].querySelector('input')?.focus();
       return;
     }
     if (current < steps.length - 1) {
       current += 1;
-      updateGameView();
-      steps[current].querySelector('input')?.focus();
+      updateGameView({ moveFocus: true });
       return;
     }
     const role = game.querySelector('input[name="gameRole"]:checked')?.value || 'business';
@@ -897,20 +1262,30 @@ function initConfidenceGame() {
     const result = confidenceResult(role, score);
     saveConfidencePassport(result);
     renderConfidencePassport(result);
-    if (next) { next.disabled = true; next.innerHTML = 'Result unlocked <span aria-hidden="true">✓</span>'; }
+    setAchievementStates(true);
+    if (selectionStatus) {
+      selectionStatus.classList.add('ready');
+      selectionStatus.querySelector('span').textContent = '✓';
+      selectionStatus.querySelector('strong').textContent = 'Challenge complete — your learning path is ready';
+    }
+    if (next) { next.disabled = true; next.setAttribute('aria-disabled', 'true'); next.innerHTML = 'Result unlocked <span aria-hidden="true">✓</span>'; }
     triggerConfetti(document.querySelector('.confidence-passport')?.getBoundingClientRect().left || window.innerWidth / 2, 42);
     showToast(`${result.level.name} badge unlocked.`);
-    document.querySelector('.confidence-passport')?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center' });
+    document.querySelector('.confidence-passport')?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
   });
 
   back?.addEventListener('click', () => {
-    if (current > 0) { current -= 1; updateGameView(); }
+    if (current > 0) {
+      current -= 1;
+      updateGameView({ moveFocus: true });
+    }
   });
 
   document.querySelector('#restart-confidence-game')?.addEventListener('click', () => {
     game.reset();
     current = 0;
     document.querySelector('#passport-result').hidden = true;
+    document.querySelector('.confidence-passport')?.classList.remove('completed');
     document.querySelector('#passport-score-ring')?.style.setProperty('--score', '0');
     document.querySelector('#passport-score').textContent = '—';
     document.querySelector('#passport-badge-kicker').textContent = 'Your badge is waiting';
@@ -918,10 +1293,9 @@ function initConfidenceGame() {
     document.querySelector('#passport-message').textContent = 'Answer four quick steps to unlock a positive starting level and a learning path matched to your role.';
     const status = document.querySelector('#passport-status');
     if (status) { status.textContent = 'Not started'; status.classList.remove('unlocked'); }
-    document.querySelectorAll('[data-passport-achievement]').forEach(item => item.classList.remove('unlocked'));
-    if (next) next.disabled = false;
+    if (next) next.disabled = true;
     try { localStorage.removeItem('notabotConfidencePassport'); } catch { /* optional */ }
-    updateGameView();
+    updateGameView({ moveFocus: true });
   });
 
   document.querySelector('#use-passport-path')?.addEventListener('click', event => {
@@ -929,13 +1303,21 @@ function initConfidenceGame() {
     const key = event.currentTarget.dataset.resultKey;
     document.querySelectorAll('.path-recommended').forEach(item => item.classList.remove('path-recommended'));
     if (type === 'programme') {
-      selectProgramme(key);
       const target = document.querySelector(`[data-programme-card="${key}"]`);
-      target?.classList.add('path-recommended');
+      if (target) {
+        selectProgramme(key);
+        target.classList.add('path-recommended');
+      } else {
+        window.location.href = `organisations.html?recommend=${encodeURIComponent(key)}#programmes`;
+      }
     } else {
       const target = document.querySelector(`[data-course-card="${key}"]`);
-      target?.classList.add('path-recommended');
-      target?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center', inline: 'center' });
+      if (target) {
+        target.classList.add('path-recommended');
+        target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center', inline: 'center' });
+      } else {
+        window.location.href = `individuals.html?recommend=${encodeURIComponent(key)}#individuals`;
+      }
     }
   });
 
@@ -951,6 +1333,7 @@ function initConfidenceGame() {
   const saved = loadConfidencePassport();
   if (saved) renderConfidencePassport(saved, true);
   updateGameView();
+  if (saved) setAchievementStates(true);
 }
 
 function updatePlannerQuest() {
@@ -1011,7 +1394,8 @@ function init() {
   document.querySelectorAll('[data-year]').forEach(element => { element.textContent = String(new Date().getFullYear()); });
   initNavigation();
   initReveal();
-  initManifesto();
+  initGsapEnhancements();
+  initDecisionDemo();
   initParallax();
   initMagnetic();
   initTilt();
@@ -1021,9 +1405,10 @@ function init() {
   initConfidenceGame();
   initPlanner();
   initPlannerQuest();
+  initMerch();
   initContactForm();
   const mobileCta = document.querySelector('[data-mobile-cta]');
-  const ctaBlockingSections = [...document.querySelectorAll('#top,#confidence-challenge,#programmes,#tools,#individuals,#planner,#impact,#contact')];
+  const ctaBlockingSections = [...document.querySelectorAll('#top,#how-it-works,#audience-paths,#confidence-challenge,#programmes,#tools,#individuals,#merch,#planner,#impact,#contact')];
   if (mobileCta && 'IntersectionObserver' in window) {
     const visibleBlockingSections = new Set();
     const mobileObserver = new IntersectionObserver(entries => {
@@ -1035,8 +1420,74 @@ function init() {
     }, { threshold: .08 });
     ctaBlockingSections.forEach(section => mobileObserver.observe(section));
   }
+  const params = new URLSearchParams(window.location.search);
+  const requestedProgramme = params.get('programme');
+  if (planner && requestedProgramme && programmes[requestedProgramme]) {
+    const radio = planner.querySelector(`input[name="programme"][value="${requestedProgramme}"]`);
+    if (radio) radio.checked = true;
+  }
+  const requestedIndividual = params.get('individual');
+  if (requestedIndividual && individualCourses[requestedIndividual]) {
+    const need = document.querySelector('#contact-need');
+    if (need) {
+      const course = individualCourses[requestedIndividual];
+      need.value = course.name === 'Data Confidence for Your Role' ? 'Data Confidence for Your Role — Individual' : course.name;
+    }
+  }
+  const recommendedKey = params.get('recommend');
+  if (recommendedKey) {
+    const recommendedCard = document.querySelector(`[data-programme-card="${recommendedKey}"], [data-course-card="${recommendedKey}"]`);
+    if (recommendedCard) {
+      recommendedCard.classList.add('path-recommended');
+
+      // The quiz recommendation receives the premium visual treatment.
+      // No programme is permanently favoured before the visitor completes the challenge.
+      if (recommendedCard.classList.contains('programme-plan')) {
+        document.querySelectorAll('.programme-plan-recommended').forEach(card => card.classList.remove('programme-plan-recommended'));
+        recommendedCard.classList.add('programme-plan-recommended');
+
+        const topline = recommendedCard.querySelector('.plan-topline');
+        if (topline && !topline.querySelector('.recommendation-tag')) {
+          const tag = document.createElement('b');
+          tag.className = 'recommendation-tag';
+          tag.textContent = 'Your match';
+          tag.setAttribute('aria-label', 'Recommended for you');
+          topline.appendChild(tag);
+        }
+      }
+
+      window.setTimeout(() => recommendedCard.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'center', inline: 'center' }), 260);
+    }
+  }
   updatePricingCards();
   updatePlan();
 }
 
 init();
+
+
+// V17: restrained GSAP choreography for static information cards.
+window.addEventListener('load', () => {
+  if (!window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const gsap = window.gsap;
+  if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
+  const animateGroup = (selector) => {
+    const items = gsap.utils.toArray(selector);
+    if (!items.length) return;
+    gsap.from(items, {
+      y: 34,
+      opacity: 0,
+      duration: .72,
+      stagger: .09,
+      ease: 'power3.out',
+      scrollTrigger: window.ScrollTrigger ? {trigger: items[0].parentElement, start: 'top 82%', once: true} : undefined
+    });
+  };
+    animateGroup('.tool-training-grid .tool-training-card');
+  animateGroup('.home-outcomes article');
+  animateGroup('.subpage-proof span');
+  if (document.body.classList.contains('merch-page')) {
+    gsap.from('.merch-page-hero h1, .merch-page-hero p, .merch-page-hero .button', {y: 28, opacity: 0, duration: .8, stagger: .11, ease: 'power3.out'});
+    gsap.to('.merch-page-orbit', {rotation: 360, duration: 36, repeat: -1, ease: 'none'});
+  }
+});

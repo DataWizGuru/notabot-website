@@ -34,3 +34,6 @@ The build is local and has not been published. Prices remain indicative; deliver
 The new pages use `ux.css`, `ux.js` and `ux-core.js`. Catalogue values are in `catalogue.json` and its browser counterpart `ux-data.js`; static course cards also contain those values, so keep them consistent when updating the catalogue. The shop retains its earlier assets and scripts. `README.md` describes this release; `DESIGN.md` records the applied design direction.
 
 The pre-change site is backed up separately in the working folder. Earlier architecture documents remain the design rationale; this note records the implemented build and actual validation.
+
+
+Brand correction: gold #D4AF37; dark background/gradient #0B1220. Header/footer use the supplied official logo, and Home uses the supplied portrait mascot without cropping.

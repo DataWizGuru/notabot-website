@@ -1,0 +1,192 @@
+{
+  "programmes": {
+    "executive": {
+      "name": "The Data-Smart Executive",
+      "outcome": "Understand the numbers in the room, challenge assumptions and know what to ask data and AI teams.",
+      "capacity": 12,
+      "protectCapacity": 8,
+      "basePrice": 10000,
+      "additionalCohort": 8000,
+      "learningDays": {
+        "protect": "2 focused session days",
+        "balanced": "1 focused session day",
+        "fast": "1 focused session day"
+      },
+      "calendarRhythm": {
+        "protect": "Two short leadership sessions",
+        "balanced": "One 90-minute briefing",
+        "fast": "One 90-minute briefing"
+      },
+      "contactLabel": "The Data-Smart Executive",
+      "approvalBenefits": [
+        "help our leaders understand analytics, dashboards and AI without a long technical course",
+        "improve the questions we ask about KPIs, evidence and decision risk"
+      ],
+      "approvalGoal": "help leadership make more confident data-informed decisions and communicate more clearly with data teams",
+      "format": "90 min + guided Q&A"
+    },
+    "business": {
+      "name": "Data Confidence for Business Professionals",
+      "outcome": "Understand data, reports and analytics in the context of everyday business work.",
+      "capacity": 15,
+      "protectCapacity": 8,
+      "basePrice": 18500,
+      "additionalCohort": 12500,
+      "learningDays": {
+        "protect": "4 focused session days",
+        "balanced": "3 focused session days",
+        "fast": "2 half-days"
+      },
+      "calendarRhythm": {
+        "protect": "Short sessions spaced to protect BAU",
+        "balanced": "Three focused sessions",
+        "fast": "Two half-day blocks"
+      },
+      "contactLabel": "Data Confidence for Business Professionals",
+      "approvalBenefits": [
+        "help business users understand reports, KPIs and analytical language",
+        "show people how data can support the work they already do"
+      ],
+      "approvalGoal": "build practical data confidence without requiring everyone to become a technical analyst",
+      "format": "3 × 75 min + follow-up support"
+    },
+    "managers": {
+      "name": "Decision Intelligence for Managers",
+      "outcome": "Turn KPIs, evidence and business questions into clearer management decisions.",
+      "capacity": 12,
+      "protectCapacity": 6,
+      "basePrice": 29500,
+      "additionalCohort": 19500,
+      "learningDays": {
+        "protect": "4 focused session days",
+        "balanced": "3 focused session days",
+        "fast": "2 half-days"
+      },
+      "calendarRhythm": {
+        "protect": "Short sessions spaced to protect BAU",
+        "balanced": "Three focused sessions",
+        "fast": "Two half-day blocks"
+      },
+      "contactLabel": "Decision Intelligence for Managers",
+      "approvalBenefits": [
+        "improve problem framing and KPI-led performance conversations",
+        "help managers turn reporting into clear decisions and accountable action"
+      ],
+      "approvalGoal": "make management conversations more decisive, evidence-led and action-oriented",
+      "format": "3 × 90 min + applied support"
+    },
+    "storytelling": {
+      "name": "Data Storytelling & Dashboard Decision Design",
+      "outcome": "Build reports and stories that people understand, trust and act on.",
+      "capacity": 10,
+      "protectCapacity": 6,
+      "basePrice": 42500,
+      "additionalCohort": 27500,
+      "learningDays": {
+        "protect": "5 focused session days",
+        "balanced": "4 focused session days",
+        "fast": "3 focused session days"
+      },
+      "calendarRhythm": {
+        "protect": "Short sessions spaced to protect BAU",
+        "balanced": "Four focused sessions",
+        "fast": "Three grouped sessions"
+      },
+      "contactLabel": "Data Storytelling & Dashboard Decision Design",
+      "approvalBenefits": [
+        "improve the clarity, usability and adoption of our dashboards",
+        "help analysts explain insight in a concise, decision-ready way"
+      ],
+      "approvalGoal": "reduce reporting friction and create outputs stakeholders can understand, trust and act on",
+      "format": "4 × 2 hrs + dashboard review support"
+    },
+    "powerbi": {
+      "name": "Power BI Foundations",
+      "outcome": "Build practical Power BI reporting skills around real business questions and useful dashboards.",
+      "capacity": 10,
+      "protectCapacity": 6,
+      "basePrice": 32500,
+      "additionalCohort": 22000,
+      "learningDays": {
+        "protect": "5 focused session days",
+        "balanced": "4 focused session days",
+        "fast": "3 focused session days"
+      },
+      "calendarRhythm": {
+        "protect": "Short sessions spaced to protect BAU",
+        "balanced": "Four focused sessions",
+        "fast": "Three grouped sessions"
+      },
+      "contactLabel": "Power BI Foundations",
+      "approvalBenefits": [
+        "build practical Power BI capability around meaningful business problems",
+        "reduce report rework and dependence on ad-hoc support"
+      ],
+      "approvalGoal": "develop reporting skills that translate into better day-to-day delivery",
+      "format": "4 × 2 hrs + follow-up support"
+    },
+    "fabric": {
+      "name": "Microsoft Fabric Foundations",
+      "outcome": "Understand how Fabric supports modern data work and build practical confidence using its core experiences.",
+      "capacity": 10,
+      "protectCapacity": 6,
+      "basePrice": 32500,
+      "additionalCohort": 22000,
+      "learningDays": {
+        "protect": "5 focused session days",
+        "balanced": "4 focused session days",
+        "fast": "3 focused session days"
+      },
+      "calendarRhythm": {
+        "protect": "Short sessions spaced to protect BAU",
+        "balanced": "Four focused sessions",
+        "fast": "Three grouped sessions"
+      },
+      "contactLabel": "Microsoft Fabric Foundations",
+      "approvalBenefits": [
+        "help our team understand where Microsoft Fabric fits and how its core experiences work together",
+        "build a shared foundation before making larger technical or platform decisions"
+      ],
+      "approvalGoal": "create practical Fabric understanding without overwhelming learners with unnecessary technical depth",
+      "format": "4 × 2 hrs + follow-up support"
+    }
+  },
+  "individual": {
+    "analytics": {
+      "name": "Analytics Foundations for Everyone",
+      "price": 1250,
+      "format": "2 × 90-minute live sessions",
+      "benefits": [
+        "understand what data analytics is and the business questions it can answer",
+        "build a strong foundation without needing a technical background"
+      ]
+    },
+    "role": {
+      "name": "Data Confidence for Your Role",
+      "price": 1500,
+      "format": "2 × 90-minute sessions plus follow-up support",
+      "benefits": [
+        "understand how data can support my current role",
+        "read reports and KPIs with more confidence and ask better questions"
+      ]
+    },
+    "visualisation": {
+      "name": "Visualisation Fundamentals",
+      "price": 1250,
+      "format": "2 × 90-minute live sessions",
+      "benefits": [
+        "choose clearer charts and avoid misleading visuals",
+        "make business information easier for others to understand"
+      ]
+    },
+    "story": {
+      "name": "Data Storytelling Foundations",
+      "price": 1750,
+      "format": "3 × 90-minute sessions plus follow-up support",
+      "benefits": [
+        "turn numbers into a clear message",
+        "explain context and recommend the next action with confidence"
+      ]
+    }
+  }
+}

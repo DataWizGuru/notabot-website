@@ -1,101 +1,36 @@
-# Notabot Studio Website
+# NotABot Studio — implemented UX build
 
-A GitHub Pages-ready static website for Notabot Studio.
+The reviewed architecture is implemented in the existing website. The dark visual direction is retained, with near-black surfaces, blue atmosphere, warm italic headings, readable controls and the supplied NotABot identity.
 
-## Files
+## What changed
 
-```text
-notabot-website/
-├── index.html
-├── services.html
-├── training.html
-├── about.html
-├── contact.html
-├── css/styles.css
-├── js/main.js
-├── CNAME
-└── assets/
-```
+- Twelve pages, with direct Training, Consultancy, About, Approach and Contact navigation.
+- Home routes for individuals, organisations and visitors who want help choosing.
+- Shared individual course and organisation programme information, with clear outcomes, formats and indicative fees.
+- Optional guidance with explained starting points, editable answers, Back/Forward support, session recovery, reset and independent exploration.
+- Organisation estimates with explicit group sizes, assumptions and validation for whole-number groups of 4–40. Estimate context survives the enquiry return link.
+- Contextual enquiries with optional organisation details, accessible error messages, reviewable email drafts and copy support. The website does not send messages.
+- Responsive navigation, focus indicators, semantic forms, reduced-motion support and static alternatives for the enhanced forms.
+- The existing shop remains available from the footer.
 
-## How to test locally
+## Verification completed
 
-1. Open the folder in VS Code.
-2. Install the **Live Server** extension.
-3. Right-click `index.html` and select **Open with Live Server**.
+- 221 assertions against the implemented guidance and estimate logic, including guidance branches, group capacities, price calculations and invalid counts.
+- Internal links, assets, anchors and image alternative text checked across all 12 pages: no issues found.
+- All 12 pages checked in the browser at widths of 320, 768 and 1440 pixels: no horizontal overflow, one main heading per page and no missing loaded images.
+- Browser checks for personal guidance, combined support, exploration, reset, retained answers with browser Back/Forward and reload, required-field and email validation, draft encoding and copying, invalid estimates, contextual estimate return, and keyboard menu dismissal.
+- No browser console errors observed during the page sweep.
 
-You can also double-click `index.html`, but Live Server is cleaner for testing.
+These checks are not a complete accessibility audit or a substitute for user testing. No-JavaScript fallbacks and reduced-motion rules were inspected in source; a separate assistive-technology and cross-browser certification pass was not performed. Actual email delivery was not tested because sending remains the visitor’s action.
 
-## What to replace before launch
+## Using the site
 
-- Replace the placeholder logo mark with your final Notabot logo.
-- Add your real LinkedIn URL.
-- Replace the WhatsApp placeholder number in `contact.html`.
-- Email is set to `hello@notabot.studio`.
-- Add `assets/images/notabot-preview.png` for LinkedIn/Open Graph previews.
-- Add a favicon.
+The updated files are in `C:\Users\niren\Downloads\notabot-immersive-v20`. The ZIP contains the complete site and its local assets. It needs no dependency installation or build step. To preview with Node installed, run `node preview.cjs` from the extracted folder, then open `http://127.0.0.1:4173/index.html`.
 
-## GitHub Pages deployment
+The build is local and has not been published. Prices remain indicative; delivery dates, current fees, prerequisites and engagement details need confirmation. The existing qualitative project summary is retained without invented metrics or testimonials. A fuller approved biography and additional verified project evidence can be added when available.
 
-1. Create a GitHub repo called `notabot-website`.
-2. Upload all files.
-3. Go to **Settings → Pages**.
-4. Set source to **Deploy from branch**.
-5. Select `main` and `/root`.
-6. Save.
+## Maintenance
 
-## Custom domain
+The new pages use `ux.css`, `ux.js` and `ux-core.js`. Catalogue values are in `catalogue.json` and its browser counterpart `ux-data.js`; static course cards also contain those values, so keep them consistent when updating the catalogue. The shop retains its earlier assets and scripts. `README.md` describes this release; `DESIGN.md` records the applied design direction.
 
-The `CNAME` file contains:
-
-```text
-www.notabot.studio
-```
-
-In GoDaddy, point `www` to your GitHub Pages domain:
-
-```text
-Type: CNAME
-Name: www
-Value: YOUR-GITHUB-USERNAME.github.io
-```
-
-For the root domain, add GitHub Pages A records in your DNS settings.
-
-## Pricing included
-
-- BI Consulting: R875/hour
-- Analytics Strategy Session: R3,500
-- Dashboard UX/UI Redesign: from R12,500
-- Power BI Report Build: from R18,500
-- Microsoft Fabric Advisory: from R25,000
-- Power BI Training:
-  - 1-Day Fundamentals: R9,500
-  - 2-Day Practical Training: R17,500
-  - 3-Day Dashboard Build Workshop: R26,500
-
-## Brand direction
-
-Inspired by the Notabot style scape:
-
-- Segoe UI Variable / Aptos heading and body stack
-- Microsoft Fluent 2-inspired spacing, radius, elevation, focus rings and surfaces
-- Premium dark mode
-- Teal, deep blue, off-white, and yellow accents
-- Human-centred data storytelling
-- Dashboard-like visual system
-- Friendly but premium robot-inspired brand mark
-
-
-## Logo and font update
-
-The site now uses the supplied Notabot robot logo from `assets/logo/notabot-logo.png`, with a small favicon at `assets/logo/favicon.png`. Typography has been updated to a Microsoft-style Segoe UI Variable / Aptos stack for a cleaner, more readable Fluent 2 feel.
-
-
-## 2026 Fluent 2 interaction update
-
-This version includes transparent Notabot logo assets, a high-contrast dark-mode wordmark, subtle Fluent-style acrylic surfaces, animated hero elements, hover micro-interactions, and reduced-motion support.
-
-
-## Refinement note
-
-This version uses the supplied full Notabot Studio wordmark in the navigation with a transparent high-contrast dark-mode treatment. The homepage hero has been simplified to keep the first viewport focused on the tagline, headline, subtext, CTA buttons and one dashboard visual.
+The pre-change site is backed up separately in the working folder. Earlier architecture documents remain the design rationale; this note records the implemented build and actual validation.
